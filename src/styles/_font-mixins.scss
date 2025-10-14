@@ -1,0 +1,41 @@
+@mixin set-title-medium {
+  font-family: var(--font-ibarra-real-nova), sans-serif;
+  font-size: 2rem;
+  letter-spacing: -0.29px;
+  line-height: 36;
+  font-weight: 400;
+  color: var(--grayish-dark-blue);
+}
+
+@mixin set-title-large {
+  font-family: var(--font-ibarra-real-nova), sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: -0.36px;
+  line-height: 42;
+  font-weight: 700;
+  color: var(--grayish-dark-blue);
+}
+
+@mixin set-title-extra-large {
+  font-family: var(--font-ibarra-real-nova), sans-serif;
+  font-size: 3.125rem;
+  letter-spacing: -0.45px;
+  line-height: 50;
+  font-weight: 700;
+  color: var(--grayish-dark-blue);
+}
+
+@mixin set-paragraph-medium {
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 0.9375rem;
+  line-height: 30;
+  font-weight: 400;
+  color: var(--grayish-dark-blue);
+}
+
+@mixin set-paragraph-large {
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--grayish-dark-blue);
+}

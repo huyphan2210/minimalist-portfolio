@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Ibarra_Real_Nova } from "next/font/google";
+import { Ibarra_Real_Nova, Public_Sans } from "next/font/google";
 import "../styles/default.scss";
 
 const ibarraRealNova = Ibarra_Real_Nova({
   variable: "--font-ibarra-real-nova",
+});
+
+const publicSans = Public_Sans({
+  variable: "--font-public-sans",
 });
 
 export const metadata: Metadata = {
@@ -17,7 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${ibarraRealNova.variable}`}>
+    <html
+      lang="en"
+      className={`${ibarraRealNova.variable} ${publicSans.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
