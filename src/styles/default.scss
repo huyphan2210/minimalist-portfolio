@@ -1,7 +1,15 @@
-// @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400..700;1,400..700&display=swap");
+:root {
+  --cyan: #5fb4a2;
+  --dark-blue: #203a4c;
+  --grayish-dark-blue: #33323d;
+
+  --grey-1: #fafafa;
+  --grey-2: #eaeaeb;
+  --red: #f43030;
+}
 
 * {
-  font-family: var(--font-ibarra-real-nova), sans-serif;
+  font-family: var(--font-public-sans), sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
