@@ -1,9 +1,9 @@
-import styles from "./page.module.scss";
+import LayoutHeader from "@/components/layout/header/header";
 
 export default function Home() {
   return (
     <>
-      <header className={styles.main}></header>
+      <LayoutHeader></LayoutHeader>
       <main></main>
       <footer></footer>
     </>
