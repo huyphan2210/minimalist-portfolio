@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "scss:types": "typed-scss-modules src --ignorePaths **/node_modules/** --exportType default --nameFormat none"
   },
   "dependencies": {
     "next": "15.5.4",
@@ -21,6 +22,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
     "sass": "^1.93.2",
+    "typed-scss-modules": "^8.1.1",
     "typescript": "^5"
   }
 }
