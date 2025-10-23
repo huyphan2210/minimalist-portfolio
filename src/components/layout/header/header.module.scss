@@ -1,3 +1,27 @@
 .header {
-  
+  --header-padding-top: 2rem;
+
+  padding-top: var(--header-padding-top);
+  padding-inline: var(--global-padding-inline);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__home-link {
+    display: inline-block;
+
+    &__img {
+      vertical-align: top;
+    }
+  }
+
+  &__nav { 
+    display: block;
+    &_btn { 
+      display: flex;
+      &--non-display {
+        display: none;
+      }
+    }
+  }
 }
