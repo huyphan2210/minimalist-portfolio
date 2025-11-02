@@ -7,7 +7,7 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "scss:types": "typed-scss-modules src --ignorePaths **/node_modules/** --exportType default --nameFormat none"
+    "scss:types": "typed-scss-modules \"src/**/*.module.scss\" --ignorePaths \"**/node_modules/**\" --exportType default --nameFormat none"
   },
   "dependencies": {
     "next": "15.5.4",

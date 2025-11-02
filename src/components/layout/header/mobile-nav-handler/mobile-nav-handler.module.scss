@@ -1,0 +1,8 @@
+.client-nav {
+  &_btn {
+    display: flex;
+    &--non-display {
+      display: none;
+    }
+  }
+}

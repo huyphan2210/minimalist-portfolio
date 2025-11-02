@@ -15,12 +15,12 @@
     }
   }
 
-  &__nav { 
+  &__nav {
     display: block;
-    &_btn { 
-      display: flex;
-      &--non-display {
-        display: none;
+    &__list {
+      display: none;
+      &.open {
+        display: unset;
       }
     }
   }
