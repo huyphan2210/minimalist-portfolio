@@ -5,6 +5,7 @@
 
   --grey-1: #fafafa;
   --grey-2: #eaeaeb;
+  --white: #fff;
   --red: #f43030;
 
   --global-padding-inline: 2rem;
@@ -28,5 +29,17 @@ body {
 button {
   &:hover {
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  :root {
+    --global-padding-inline: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  :root {
+    --global-padding-inline: 10.25rem;
   }
 }

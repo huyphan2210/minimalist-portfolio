@@ -1,8 +1,26 @@
 .client-nav {
   &_btn {
     display: flex;
+    animation: show-up 0.3s ease-in-out;
     &--non-display {
       display: none;
     }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .client-nav {
+    &_btn {
+      display: none;
+    }
+  }
+}
+
+@keyframes show-up {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
