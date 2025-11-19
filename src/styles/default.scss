@@ -5,7 +5,10 @@
 
   --grey-1: #fafafa;
   --grey-2: #eaeaeb;
+  --white: #fff;
   --red: #f43030;
+
+  --global-padding-inline: 2rem;
 }
 
 * {
@@ -13,9 +16,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: transparent;
+  border: none;
+  list-style-type: none;
 }
 
 html,
 body {
   height: 100%;
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  :root {
+    --global-padding-inline: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  :root {
+    --global-padding-inline: 10.25rem;
+  }
 }
