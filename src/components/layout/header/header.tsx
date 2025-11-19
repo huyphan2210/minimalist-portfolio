@@ -9,11 +9,11 @@ import styles from "./header.module.scss";
 import logo from "./../../../icons/logo.svg";
 import MobileNavHandler from "./mobile-nav-handler/mobile-nav-handler";
 
-import { ICommonNavigationList } from "@/common/navigationList";
+import { IInternalNavigation } from "@/common/navigationList";
 import { REQUEST_HEADERS } from "@/middleware";
 
 export interface ILayoutHeader {
-  navigationList: ICommonNavigationList[];
+  navigationList: IInternalNavigation[];
 }
 
 const LayoutHeader: FC<ILayoutHeader> = async ({ navigationList }) => {

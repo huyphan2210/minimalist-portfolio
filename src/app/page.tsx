@@ -1,12 +1,20 @@
+import {
+  internalNavigationList,
+  profileNavigationList,
+} from "@/common/navigationList";
+
 import LayoutHeader from "@/components/layout/header/header";
-import { navigationList } from "@/common/navigationList";
+import LayoutFooter from "@/components/layout/footer/footer";
 
 export default function Home() {
   return (
     <>
-      <LayoutHeader navigationList={navigationList}></LayoutHeader>
+      <LayoutHeader navigationList={internalNavigationList}></LayoutHeader>
       <main></main>
-      <footer></footer>
+      <LayoutFooter
+        internalNavigationList={internalNavigationList}
+        profileNavigationList={profileNavigationList}
+      ></LayoutFooter>
     </>
   );
 }
