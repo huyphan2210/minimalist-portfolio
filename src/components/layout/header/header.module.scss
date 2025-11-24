@@ -1,4 +1,4 @@
-@import "../mixin";
+@use "../mixin" as *;
 
 .header {
   --header-padding-top: 2rem;

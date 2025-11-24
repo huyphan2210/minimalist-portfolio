@@ -1,4 +1,4 @@
-@import "../mixin";
+@use "../mixin" as *;
 
 .footer {
   background-color: var(--grayish-dark-blue);
