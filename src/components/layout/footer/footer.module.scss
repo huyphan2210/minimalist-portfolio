@@ -19,7 +19,7 @@
 
   &__nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; 
     gap: 2.5rem;
     &__internal-list {
       display: flex;
@@ -51,6 +51,7 @@
 
 @media screen and (min-width: 48rem) {
   .footer {
+    padding-block: 1.5rem;
     flex-direction: unset;
     gap: 3rem;
     &__nav {
