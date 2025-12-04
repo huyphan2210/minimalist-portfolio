@@ -480,13 +480,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   attributes: {
     aboutMeCtaUrl: Schema.Attribute.String;
     aboutMeDescription: Schema.Attribute.Text;
-    aboutMeImageDesktop: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    aboutMeImageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    aboutMeImageTablet: Schema.Attribute.Media<
+    aboutMeImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     aboutMeTitle: Schema.Attribute.String;
@@ -497,13 +491,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     introCtaUrl: Schema.Attribute.String;
     introHeading: Schema.Attribute.Text;
-    introImageDesktop: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    introImageMobile: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    introImageTablet: Schema.Attribute.Media<
+    introImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;

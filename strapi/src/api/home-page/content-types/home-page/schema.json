@@ -14,27 +14,7 @@
     "introHeading": {
       "type": "text"
     },
-    "introImageMobile": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "introImageTablet": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "introImageDesktop": {
+    "introImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -53,27 +33,7 @@
     "aboutMeDescription": {
       "type": "text"
     },
-    "aboutMeImageMobile": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "aboutMeImageTablet": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
-    "aboutMeImageDesktop": {
+    "aboutMeImage": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
