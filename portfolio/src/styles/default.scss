@@ -26,6 +26,11 @@ body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 button {
   &:hover {
     cursor: pointer;
