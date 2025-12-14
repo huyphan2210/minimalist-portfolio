@@ -1,3 +1,8 @@
-.main {
-  display: flex;
+.home {
+  &__intro {
+    display: block;
+    &__heading {
+      font-family: var(--font-ibarra-real-nova);
+    }
+  }
 }
