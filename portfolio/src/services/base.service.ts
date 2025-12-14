@@ -1,6 +1,8 @@
 class BaseServices {
-  protected static apiBaseUrl =
-    process.env.STRAPI_BASE_URL ?? "http://localhost:1337/api";
+  private static baseUrl =
+    process.env.STRAPI_BASE_URL ?? "http://localhost:1337";
+
+  protected static apiBaseUrl = this.baseUrl + "/api";
 
   private static requestOptions: RequestInit = {
     headers: {
@@ -25,6 +27,10 @@ class BaseServices {
       console.error(error);
       throw error;
     }
+  }
+
+  static returnMediaFullURL(url: string) {
+    return this.baseUrl + url;
   }
 }
 
