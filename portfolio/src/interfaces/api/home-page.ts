@@ -12,6 +12,7 @@ export interface HomePage {
     introHeading?: string;
     introImage?: { data: Media };
     introCtaUrl?: string;
+    introCtaContent?: string;
     aboutMeTitle?: string;
     aboutMeDescription?: string;
     aboutMeImage?: { data: Media };
@@ -28,6 +29,7 @@ export interface HomePage_Plain {
   introHeading?: string;
   introImage?: Media_Plain;
   introCtaUrl?: string;
+  introCtaContent?: string;
   aboutMeTitle?: string;
   aboutMeDescription?: string;
   aboutMeImage?: Media_Plain;
@@ -44,6 +46,7 @@ export interface HomePage_NoRelations {
   introHeading?: string;
   introImage?: number;
   introCtaUrl?: string;
+  introCtaContent?: string;
   aboutMeTitle?: string;
   aboutMeDescription?: string;
   aboutMeImage?: number;
@@ -60,6 +63,7 @@ export interface HomePage_AdminPanelLifeCycle {
   introHeading?: string;
   introImage?: AdminPanelRelationPropertyModification<Media_Plain>;
   introCtaUrl?: string;
+  introCtaContent?: string;
   aboutMeTitle?: string;
   aboutMeDescription?: string;
   aboutMeImage?: AdminPanelRelationPropertyModification<Media_Plain>;
