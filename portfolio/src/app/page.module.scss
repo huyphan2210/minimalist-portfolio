@@ -1,8 +1,46 @@
+@use "../styles/image-mixins" as image-mixins;
+@use "../styles/font-mixins" as font-mixins;
+
 .home {
   &__intro {
     display: block;
+    &__img {
+      @include image-mixins.image-style;
+    }
+
     &__heading {
-      font-family: var(--font-ibarra-real-nova);
+      @include font-mixins.set-title-large;
+    }
+  }
+
+  &__about-me {
+    display: block;
+    &__img {
+      @include image-mixins.image-style;
+    }
+
+    &__heading {
+      @include font-mixins.set-title-large;
+    }
+
+    &__paragraph {
+      @include font-mixins.set-paragraph-large;
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .home {
+    &__intro {
+      &__heading {
+        @include font-mixins.set-title-extra-large;
+      }
+    }
+
+    &__about-me {
+      &__heading {
+        @include font-mixins.set-title-large;
+      }
     }
   }
 }

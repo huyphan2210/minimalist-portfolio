@@ -8,6 +8,7 @@ const Home = async () => {
     introHeading,
     introImage,
     introCtaUrl,
+    introCtaContent,
     aboutMeTitle,
     aboutMeDescription,
     aboutMeImage,
@@ -20,6 +21,7 @@ const Home = async () => {
     <>
       <section className={styles.home__intro}>
         <Image
+          className={styles.home__intro__img}
           src={HomeServices.returnMediaFullURL(introImage.url)}
           loading="lazy"
           alt="Image - Image"
@@ -27,18 +29,21 @@ const Home = async () => {
           height={introImage.height}
         ></Image>
         <h1 className={styles.home__intro__heading}>{introHeading}</h1>
-        <Link href={introCtaUrl} title="Call to Action - Intro" />
+        <Link href={introCtaUrl} title="Call to Action - Intro">
+          {introCtaContent}
+        </Link>
       </section>
-      <section>
+      <section className={styles["home__about-me"]}>
         <Image
+          className={styles["home__about-me__img"]}
           src={HomeServices.returnMediaFullURL(aboutMeImage.url)}
           loading="lazy"
           alt="Image - About Me"
           width={aboutMeImage.width}
           height={aboutMeImage.height}
         ></Image>
-        <h2>{aboutMeTitle}</h2>
-        <p>{aboutMeDescription}</p>
+        <h2 className={styles["home__about-me__heading"]}>{aboutMeTitle}</h2>
+        <p className={styles["home__about-me__paragraph"]}>{aboutMeDescription}</p>
         <Link href={aboutMeCtaUrl} title="Call to Action - Contact Me" />
       </section>
       <section>
