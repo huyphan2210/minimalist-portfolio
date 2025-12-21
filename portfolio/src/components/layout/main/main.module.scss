@@ -1,4 +1,28 @@
+@use "../../../styles/font-mixins" as font-mixins;
+@use "../../../styles/layout-mixins" as layout-mixins;
+
 .main {
   padding-block: 2.5rem 5rem;
   padding-inline: var(--global-padding-inline);
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+
+    &__heading {
+      @include font-mixins.set-title-large;
+    }
+
+    &__paragraph {
+      @include font-mixins.set-paragraph-large;
+    }
+
+    &__cta {
+      @include font-mixins.set-button-content;
+      @include layout-mixins.call-to-action-style;
+      align-self: center;
+    }
+  }
 }

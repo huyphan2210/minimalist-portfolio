@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_url_navigations",
+  "info": {
+    "displayName": "Navigation",
+    "icon": "link"
+  },
+  "options": {},
+  "attributes": {
+    "displayName": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

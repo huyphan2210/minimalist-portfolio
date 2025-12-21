@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+
+import goDownIcon from "../icons/go-down.svg";
+
 import styles from "./page.module.scss";
 import HomeServices from "@/services/home.services";
 
@@ -13,8 +16,7 @@ const Home = async () => {
     aboutMeDescription,
     aboutMeImage,
     aboutMeCtaUrl,
-    contactMeTitle,
-    contactMeCtaUrl,
+    aboutMeCtaContent,
   } = await HomeServices.getHomePageData();
 
   return (
@@ -28,12 +30,23 @@ const Home = async () => {
           width={introImage.width}
           height={introImage.height}
         ></Image>
-        <h1 className={styles.home__intro__heading}>{introHeading}</h1>
-        <Link href={introCtaUrl} title="Call to Action - Intro">
-          {introCtaContent}
-        </Link>
+        <div className={styles.home__intro__content}>
+          <h1 className={styles.home__intro__content__heading}>
+            {introHeading}
+          </h1>
+          <Link
+            className={styles.home__intro__content__cta}
+            href={introCtaUrl}
+            title="Call to Action - Intro"
+          >
+            <div className={styles.home__intro__content__cta__image}>
+              <Image src={goDownIcon} loading="lazy" alt="Going Down Icon" />
+            </div>
+            <span>{introCtaContent}</span>
+          </Link>
+        </div>
       </section>
-      <section className={styles["home__about-me"]}>
+      <section id={introCtaUrl} className={styles["home__about-me"]}>
         <Image
           className={styles["home__about-me__img"]}
           src={HomeServices.returnMediaFullURL(aboutMeImage.url)}
@@ -42,13 +55,21 @@ const Home = async () => {
           width={aboutMeImage.width}
           height={aboutMeImage.height}
         ></Image>
-        <h2 className={styles["home__about-me__heading"]}>{aboutMeTitle}</h2>
-        <p className={styles["home__about-me__paragraph"]}>{aboutMeDescription}</p>
-        <Link href={aboutMeCtaUrl} title="Call to Action - Contact Me" />
-      </section>
-      <section>
-        <h2>{contactMeTitle}</h2>
-        <Link href={contactMeCtaUrl} title="Call to Action - Contact Me" />
+        <div className={styles["home__about-me__content"]}>
+          <h2 className={styles["home__about-me__content__heading"]}>
+            {aboutMeTitle}
+          </h2>
+          <p className={styles["home__about-me__content__paragraph"]}>
+            {aboutMeDescription}
+          </p>
+          <Link
+            className={styles["home__about-me__content__cta"]}
+            href={aboutMeCtaUrl}
+            title="Call to Action - Contact Me"
+          >
+            {aboutMeCtaContent}
+          </Link>
+        </div>
       </section>
     </>
   );

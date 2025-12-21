@@ -1,0 +1,29 @@
+{
+  "kind": "singleType",
+  "collectionName": "layouts",
+  "info": {
+    "singularName": "layout",
+    "pluralName": "layouts",
+    "displayName": "Layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "navigations": {
+      "type": "component",
+      "component": "url.navigation",
+      "repeatable": true
+    },
+    "contactMeHeading": {
+      "type": "string"
+    },
+    "contactMeURL": {
+      "type": "string"
+    },
+    "contactMeButtonContent": {
+      "type": "string"
+    }
+  }
+}

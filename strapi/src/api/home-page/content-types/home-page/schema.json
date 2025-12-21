@@ -54,6 +54,9 @@
     },
     "contactMeCtaUrl": {
       "type": "string"
+    },
+    "aboutMeCtaContent": {
+      "type": "string"
     }
   }
 }

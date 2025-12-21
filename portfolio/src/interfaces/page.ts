@@ -1,5 +1,5 @@
 import { HomePage_Plain } from "./api/home-page";
 
-export interface HomePageApi {
+export interface IHomePageApi {
   data: HomePage_Plain
 }

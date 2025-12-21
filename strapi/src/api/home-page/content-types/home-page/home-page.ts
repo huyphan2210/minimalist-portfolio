@@ -17,6 +17,7 @@ export interface HomePage {
     aboutMeCtaUrl?: string;
     contactMeTitle?: string;
     contactMeCtaUrl?: string;
+    aboutMeCtaContent?: string;
   };
 }
 export interface HomePage_Plain {
@@ -31,6 +32,7 @@ export interface HomePage_Plain {
   aboutMeCtaUrl?: string;
   contactMeTitle?: string;
   contactMeCtaUrl?: string;
+  aboutMeCtaContent?: string;
 }
 
 export interface HomePage_NoRelations {
@@ -45,6 +47,7 @@ export interface HomePage_NoRelations {
   aboutMeCtaUrl?: string;
   contactMeTitle?: string;
   contactMeCtaUrl?: string;
+  aboutMeCtaContent?: string;
 }
 
 export interface HomePage_AdminPanelLifeCycle {
@@ -59,4 +62,5 @@ export interface HomePage_AdminPanelLifeCycle {
   aboutMeCtaUrl?: string;
   contactMeTitle?: string;
   contactMeCtaUrl?: string;
+  aboutMeCtaContent?: string;
 }

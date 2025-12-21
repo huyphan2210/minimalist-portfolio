@@ -40,3 +40,11 @@
   line-height: 30px;
   color: var(--grayish-dark-blue);
 }
+
+@mixin set-button-content {
+  font-family: var(--font-public-sans), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-decoration: none;
+}

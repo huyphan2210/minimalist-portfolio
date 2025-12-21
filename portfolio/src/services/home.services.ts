@@ -1,16 +1,12 @@
 import { HomePage_Plain } from "@/interfaces/api/home-page";
 import BaseServices from "./base.service";
-import { HomePageApi } from "@/interfaces/page";
+import { IHomePageApi } from "@/interfaces/page";
 
 class HomeServices extends BaseServices {
-  constructor() {
-    super();
-  }
-
   private static homePageUrl = this.apiBaseUrl + "/home-page?populate=*";
 
   static async getHomePageData() {
-    const result = await this.handleGetRequest<HomePageApi>(this.homePageUrl);
+    const result = await this.handleGetRequest<IHomePageApi>(this.homePageUrl);
     return {
       id: result.data.id || this.DEFAULT_HOME_PAGE_DATA.id,
       createdAt: result.data.createdAt || this.DEFAULT_HOME_PAGE_DATA.createdAt,
@@ -41,6 +37,9 @@ class HomeServices extends BaseServices {
       contactMeCtaUrl:
         result.data.contactMeCtaUrl ||
         this.DEFAULT_HOME_PAGE_DATA.contactMeCtaUrl!,
+      aboutMeCtaContent:
+        result.data.aboutMeCtaContent ||
+        this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaContent,
     };
   }
 
@@ -53,6 +52,7 @@ class HomeServices extends BaseServices {
     aboutMeDescription:
       "I am a software developer seeking a new opportunity with an exciting company. My focus is on creating accessible HTML, utilizing modern CSS practices, and writing clean JavaScript. While I primarily work with React for JavaScript development, I am adaptable and can work with various tools as needed. Based in London, UK, I have experience working in remote teams and am comfortable with remote work. Outside of coding, I enjoy spending time outdoors, whether it’s walking, running, or cycling. I would love for you to check out my work.",
     aboutMeCtaUrl: "",
+    aboutMeCtaContent: "CALL TO ACTION",
     contactMeTitle: "Interested in doing a project together?",
     contactMeCtaUrl: "",
     createdAt: new Date(),
@@ -74,11 +74,10 @@ class HomeServices extends BaseServices {
           hash: "large_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "large_Myself.jpg",
-          path: null,
+          path: "",
           size: 46.71,
           width: 1000,
           height: 666,
-          sizeInBytes: 46714,
         },
         small: {
           ext: ".jpg",
@@ -86,11 +85,10 @@ class HomeServices extends BaseServices {
           hash: "small_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "small_Myself.jpg",
-          path: null,
           size: 13.7,
           width: 500,
           height: 333,
-          sizeInBytes: 13704,
+          path: "",
         },
         medium: {
           ext: ".jpg",
@@ -98,11 +96,10 @@ class HomeServices extends BaseServices {
           hash: "medium_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "medium_Myself.jpg",
-          path: null,
           size: 27.7,
           width: 750,
           height: 500,
-          sizeInBytes: 27704,
+          path: "",
         },
         thumbnail: {
           ext: ".jpg",
@@ -110,11 +107,10 @@ class HomeServices extends BaseServices {
           hash: "thumbnail_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "thumbnail_Myself.jpg",
-          path: null,
+          path: "",
           size: 4.41,
           width: 234,
           height: 156,
-          sizeInBytes: 4410,
         },
       },
       hash: "",
@@ -143,11 +139,10 @@ class HomeServices extends BaseServices {
           hash: "large_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "large_Myself.jpg",
-          path: null,
+          path: "",
           size: 46.71,
           width: 1000,
           height: 666,
-          sizeInBytes: 46714,
         },
         small: {
           ext: ".jpg",
@@ -155,11 +150,10 @@ class HomeServices extends BaseServices {
           hash: "small_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "small_Myself.jpg",
-          path: null,
+          path: "",
           size: 13.7,
           width: 500,
           height: 333,
-          sizeInBytes: 13704,
         },
         medium: {
           ext: ".jpg",
@@ -167,11 +161,10 @@ class HomeServices extends BaseServices {
           hash: "medium_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "medium_Myself.jpg",
-          path: null,
+          path: "",
           size: 27.7,
           width: 750,
           height: 500,
-          sizeInBytes: 27704,
         },
         thumbnail: {
           ext: ".jpg",
@@ -179,11 +172,10 @@ class HomeServices extends BaseServices {
           hash: "thumbnail_Myself_e5e57fede9",
           mime: "image/jpeg",
           name: "thumbnail_Myself.jpg",
-          path: null,
+          path: "",
           size: 4.41,
           width: 234,
           height: 156,
-          sizeInBytes: 4410,
         },
       },
       hash: "Myself_e5e57fede9",

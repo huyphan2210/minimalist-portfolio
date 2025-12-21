@@ -1,30 +1,71 @@
-@use "../styles/image-mixins" as image-mixins;
+@use "../styles/layout-mixins" as layout-mixins;
 @use "../styles/font-mixins" as font-mixins;
 
 .home {
   &__intro {
     display: block;
+    margin-bottom: 6rem;
     &__img {
-      @include image-mixins.image-style;
+      @include layout-mixins.image-style;
     }
 
-    &__heading {
-      @include font-mixins.set-title-large;
+    &__content {
+      margin-top: 1.5rem;
+
+      &__heading {
+        @include font-mixins.set-title-large;
+        margin-bottom: 2rem;
+      }
+
+      &__cta {
+        background-color: var(--dark-blue);
+        display: flex;
+        max-width: 12.5rem;
+        align-items: center;
+        text-decoration: none;
+        &__image {
+          padding: 1rem;
+          background-color: rgba($color: #000000, $alpha: 0.2);
+        }
+
+        span {
+          @include font-mixins.set-button-content;
+          margin: auto;
+          color: #fff;
+        }
+      }
     }
   }
 
   &__about-me {
     display: block;
+    margin-bottom: 115px;
     &__img {
-      @include image-mixins.image-style;
+      @include layout-mixins.image-style;
     }
 
-    &__heading {
-      @include font-mixins.set-title-large;
-    }
+    &__content {
+      padding-block: 2rem;
+      margin-top: 2rem;
+      border-top: solid 1px
+        color-mix(in srgb, var(--grayish-dark-blue) 15%, transparent);
+      border-bottom: solid 1px
+        color-mix(in srgb, var(--grayish-dark-blue) 15%, transparent);
 
-    &__paragraph {
-      @include font-mixins.set-paragraph-large;
+      &__heading {
+        @include font-mixins.set-title-large;
+        margin-bottom: 1.75rem;
+      }
+
+      &__paragraph {
+        @include font-mixins.set-paragraph-large;
+        margin-bottom: 1.5rem;
+      }
+
+      &__cta {
+        @include font-mixins.set-button-content;
+        @include layout-mixins.call-to-action-style;
+      }
     }
   }
 }
@@ -38,9 +79,6 @@
     }
 
     &__about-me {
-      &__heading {
-        @include font-mixins.set-title-large;
-      }
     }
   }
 }

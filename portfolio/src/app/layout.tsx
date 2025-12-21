@@ -8,6 +8,7 @@ import {
 } from "@/common/navigationList";
 import LayoutFooter from "@/components/layout/footer/footer";
 import LayoutMain from "@/components/layout/main/main";
+import LayoutService from "@/services/layout.service";
 
 const ibarraRealNova = Ibarra_Real_Nova({
   variable: "--font-ibarra-real-nova",
@@ -22,11 +23,12 @@ export const metadata: Metadata = {
   description: "An Introduction of Huy Phan",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const layoutData = await LayoutService.getLayoutData();
   return (
     <html
       lang="en"
@@ -34,7 +36,7 @@ export default function RootLayout({
     >
       <body>
         <LayoutHeader navigationList={internalNavigationList}></LayoutHeader>
-        <LayoutMain>{children}</LayoutMain>
+        <LayoutMain layoutData={layoutData}>{children}</LayoutMain>
         <LayoutFooter
           internalNavigationList={internalNavigationList}
           profileNavigationList={profileNavigationList}

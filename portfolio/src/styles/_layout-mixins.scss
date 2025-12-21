@@ -1,0 +1,12 @@
+@mixin image-style {
+  width: 100%;
+  height: unset;
+}
+
+@mixin call-to-action-style {
+  color: var(--grayish-dark-blue);
+  padding-block: 17px;
+  padding-inline: 33px;
+  border: solid 1px var(--grayish-dark-blue);
+  display: inline-block;
+}
