@@ -485,8 +485,6 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'images' | 'files' | 'videos' | 'audios'
     >;
     aboutMeTitle: Schema.Attribute.String;
-    contactMeCtaUrl: Schema.Attribute.String;
-    contactMeTitle: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -502,6 +500,37 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
       'api::home-page.home-page'
     > &
       Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
+  collectionName: 'layouts';
+  info: {
+    displayName: 'Layout';
+    pluralName: 'layouts';
+    singularName: 'layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactMeButtonContent: Schema.Attribute.String;
+    contactMeHeading: Schema.Attribute.String;
+    contactMeURL: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::layout.layout'
+    > &
+      Schema.Attribute.Private;
+    navigations: Schema.Attribute.Component<'url.navigation', true>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1021,6 +1050,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::layout.layout': ApiLayoutLayout;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

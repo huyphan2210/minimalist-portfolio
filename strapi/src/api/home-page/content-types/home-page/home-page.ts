@@ -15,8 +15,6 @@ export interface HomePage {
     aboutMeDescription?: string;
     aboutMeImage?: { data: Media };
     aboutMeCtaUrl?: string;
-    contactMeTitle?: string;
-    contactMeCtaUrl?: string;
     aboutMeCtaContent?: string;
   };
 }
@@ -30,8 +28,6 @@ export interface HomePage_Plain {
   aboutMeDescription?: string;
   aboutMeImage?: Media_Plain;
   aboutMeCtaUrl?: string;
-  contactMeTitle?: string;
-  contactMeCtaUrl?: string;
   aboutMeCtaContent?: string;
 }
 
@@ -45,8 +41,6 @@ export interface HomePage_NoRelations {
   aboutMeDescription?: string;
   aboutMeImage?: number;
   aboutMeCtaUrl?: string;
-  contactMeTitle?: string;
-  contactMeCtaUrl?: string;
   aboutMeCtaContent?: string;
 }
 
@@ -60,7 +54,5 @@ export interface HomePage_AdminPanelLifeCycle {
   aboutMeDescription?: string;
   aboutMeImage?: AdminPanelRelationPropertyModification<Media_Plain>;
   aboutMeCtaUrl?: string;
-  contactMeTitle?: string;
-  contactMeCtaUrl?: string;
   aboutMeCtaContent?: string;
 }

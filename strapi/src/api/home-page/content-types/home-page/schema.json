@@ -49,12 +49,6 @@
     "aboutMeCtaUrl": {
       "type": "string"
     },
-    "contactMeTitle": {
-      "type": "text"
-    },
-    "contactMeCtaUrl": {
-      "type": "string"
-    },
     "aboutMeCtaContent": {
       "type": "string"
     }
