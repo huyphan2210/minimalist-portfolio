@@ -13,7 +13,5 @@ export interface HomePage_Plain {
   aboutMeDescription?: string;
   aboutMeImage?: Media_Plain;
   aboutMeCtaUrl?: string;
-  contactMeTitle?: string;
-  contactMeCtaUrl?: string;
   aboutMeCtaContent?: string;
 }

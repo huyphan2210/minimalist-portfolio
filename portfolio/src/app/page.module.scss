@@ -23,6 +23,7 @@
         max-width: 12.5rem;
         align-items: center;
         text-decoration: none;
+        color: var(--white);
         &__image {
           padding: 1rem;
           background-color: rgba($color: #000000, $alpha: 0.2);
@@ -31,7 +32,12 @@
         span {
           @include font-mixins.set-button-content;
           margin: auto;
-          color: #fff;
+        }
+
+        &:hover {
+          outline: solid 1px var(--dark-blue);
+          color: var(--dark-blue);
+          background-color: transparent;
         }
       }
     }
@@ -70,15 +76,58 @@
   }
 }
 
-@media screen and (min-width: 90rem) {
+@media screen and (min-width: 48rem) {
   .home {
     &__intro {
-      &__heading {
-        @include font-mixins.set-title-extra-large;
+      position: relative;
+      &__content {
+        max-width: 32.125rem;
+        background-color: var(--white);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-top: 3.5rem;
+        padding-right: 3.5rem;
+        margin-top: 0;
+
+        &__heading {
+          margin-bottom: 3rem;
+        }
       }
     }
 
     &__about-me {
+      display: flex;
+      gap: 69px;
+      &__img {
+        width: 40%;
+        object-fit: cover;
+      }
+      &__content {
+        margin-top: 0;
+        padding-block: 3.125rem 2.875rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .home {
+    &__intro {
+      &__content {
+        max-width: 445px;
+        &__heading {
+          @include font-mixins.set-title-extra-large;
+          margin-bottom: 53px;
+        }
+      }
+    }
+
+    &__about-me {
+      gap: 125px;
+      &__img {
+        width: 50%;
+      }
     }
   }
 }

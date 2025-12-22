@@ -15,8 +15,8 @@
       @include font-mixins.set-title-large;
     }
 
-    &__paragraph {
-      @include font-mixins.set-paragraph-large;
+    &__distance-bar {
+      display: none;
     }
 
     &__cta {
@@ -24,5 +24,34 @@
       @include layout-mixins.call-to-action-style;
       align-self: center;
     }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .main {
+    padding-block: 5.875rem 6rem;
+    &__contact {
+      flex-direction: initial;
+      text-align: initial;
+      align-items: center;
+      gap: 2rem;
+      &__heading {
+        max-width: 21.875rem;
+      }
+
+      &__distance-bar {
+        display: block;
+        flex: 1;
+        background-color: var(--grayish-dark-blue);
+        height: 1px;
+        opacity: 0.15;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .main {
+    padding-bottom: 9.375rem;
   }
 }

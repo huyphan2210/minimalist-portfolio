@@ -19,6 +19,7 @@
   background-color: transparent;
   border: none;
   list-style-type: none;
+  transition: 0.3s;
 }
 
 html,
@@ -29,6 +30,8 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  max-width: 125rem;
+  justify-self: center;
 }
 
 button {

@@ -5,45 +5,36 @@ import { IHomePageApi } from "@/interfaces/page";
 class HomeServices extends BaseServices {
   private static homePageUrl = this.apiBaseUrl + "/home-page?populate=*";
 
-  static async getHomePageData() {
-    const result = await this.handleGetRequest<IHomePageApi>(this.homePageUrl);
+  static async getHomePageData(): Promise<Required<HomePage_Plain>> {
+    const { data } = await this.handleGetRequest<IHomePageApi>(
+      this.homePageUrl
+    );
     return {
-      id: result.data.id || this.DEFAULT_HOME_PAGE_DATA.id,
-      createdAt: result.data.createdAt || this.DEFAULT_HOME_PAGE_DATA.createdAt,
-      updatedAt: result.data.updatedAt || this.DEFAULT_HOME_PAGE_DATA.updatedAt,
-      publishedAt:
-        result.data.publishedAt || this.DEFAULT_HOME_PAGE_DATA.publishedAt!,
+      id: data.id || this.DEFAULT_HOME_PAGE_DATA.id,
+      createdAt: data.createdAt || this.DEFAULT_HOME_PAGE_DATA.createdAt,
+      updatedAt: data.updatedAt || this.DEFAULT_HOME_PAGE_DATA.updatedAt,
+      publishedAt: data.publishedAt || this.DEFAULT_HOME_PAGE_DATA.publishedAt,
       introHeading:
-        result.data.introHeading || this.DEFAULT_HOME_PAGE_DATA.introHeading!,
-      introImage:
-        result.data.introImage || this.DEFAULT_HOME_PAGE_DATA.introImage!,
-      introCtaUrl:
-        result.data.introCtaUrl || this.DEFAULT_HOME_PAGE_DATA.introCtaUrl!,
+        data.introHeading || this.DEFAULT_HOME_PAGE_DATA.introHeading,
+      introImage: data.introImage || this.DEFAULT_HOME_PAGE_DATA.introImage,
+      introCtaUrl: data.introCtaUrl || this.DEFAULT_HOME_PAGE_DATA.introCtaUrl,
       introCtaContent:
-        result.data.introCtaContent ||
-        this.DEFAULT_HOME_PAGE_DATA.introCtaContent!,
+        data.introCtaContent || this.DEFAULT_HOME_PAGE_DATA.introCtaContent,
       aboutMeTitle:
-        result.data.aboutMeTitle || this.DEFAULT_HOME_PAGE_DATA.aboutMeTitle!,
+        data.aboutMeTitle || this.DEFAULT_HOME_PAGE_DATA.aboutMeTitle,
       aboutMeDescription:
-        result.data.aboutMeDescription ||
-        this.DEFAULT_HOME_PAGE_DATA.aboutMeDescription!,
+        data.aboutMeDescription ||
+        this.DEFAULT_HOME_PAGE_DATA.aboutMeDescription,
       aboutMeImage:
-        result.data.aboutMeImage || this.DEFAULT_HOME_PAGE_DATA.aboutMeImage!,
+        data.aboutMeImage || this.DEFAULT_HOME_PAGE_DATA.aboutMeImage,
       aboutMeCtaUrl:
-        result.data.aboutMeCtaUrl || this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaUrl!,
-      contactMeTitle:
-        result.data.contactMeTitle ||
-        this.DEFAULT_HOME_PAGE_DATA.contactMeTitle!,
-      contactMeCtaUrl:
-        result.data.contactMeCtaUrl ||
-        this.DEFAULT_HOME_PAGE_DATA.contactMeCtaUrl!,
+        data.aboutMeCtaUrl || this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaUrl,
       aboutMeCtaContent:
-        result.data.aboutMeCtaContent ||
-        this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaContent,
+        data.aboutMeCtaContent || this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaContent,
     };
   }
 
-  private static DEFAULT_HOME_PAGE_DATA: HomePage_Plain = {
+  private static DEFAULT_HOME_PAGE_DATA: Required<HomePage_Plain> = {
     id: 5,
     introHeading: "Hey, I'm Huy Phan, and I love building beautiful websites.",
     introCtaUrl: "#about-me",
@@ -53,8 +44,6 @@ class HomeServices extends BaseServices {
       "I am a software developer seeking a new opportunity with an exciting company. My focus is on creating accessible HTML, utilizing modern CSS practices, and writing clean JavaScript. While I primarily work with React for JavaScript development, I am adaptable and can work with various tools as needed. Based in London, UK, I have experience working in remote teams and am comfortable with remote work. Outside of coding, I enjoy spending time outdoors, whether it’s walking, running, or cycling. I would love for you to check out my work.",
     aboutMeCtaUrl: "",
     aboutMeCtaContent: "CALL TO ACTION",
-    contactMeTitle: "Interested in doing a project together?",
-    contactMeCtaUrl: "",
     createdAt: new Date(),
     updatedAt: new Date(),
     publishedAt: new Date(),

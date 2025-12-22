@@ -9,4 +9,9 @@
   padding-inline: 33px;
   border: solid 1px var(--grayish-dark-blue);
   display: inline-block;
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--grayish-dark-blue);
+  }
 }
