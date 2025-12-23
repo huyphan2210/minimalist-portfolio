@@ -5,6 +5,7 @@ import goDownIcon from "../icons/go-down.svg";
 
 import styles from "./page.module.scss";
 import HomeServices from "@/services/home.services";
+import CustomImage from "@/components/CustomImage/CustomImage.module";
 
 const Home = async () => {
   const {
@@ -22,14 +23,15 @@ const Home = async () => {
   return (
     <>
       <section className={styles.home__intro}>
-        <Image
+        <CustomImage
           className={styles.home__intro__img}
+          isLoadingClassName={styles["home__intro__img--loading"]}
           src={HomeServices.returnMediaFullURL(introImage.url)}
           loading="lazy"
           alt="Image - Image"
           width={introImage.width}
           height={introImage.height}
-        ></Image>
+        ></CustomImage>
         <div className={styles.home__intro__content}>
           <h1 className={styles.home__intro__content__heading}>
             {introHeading}
@@ -47,14 +49,15 @@ const Home = async () => {
         </div>
       </section>
       <section id={introCtaUrl} className={styles["home__about-me"]}>
-        <Image
+        <CustomImage
           className={styles["home__about-me__img"]}
+          isLoadingClassName={styles["home__about-me__img--loading"]}
           src={HomeServices.returnMediaFullURL(aboutMeImage.url)}
-          loading="lazy"
           alt="Image - About Me"
+          loading="lazy"
           width={aboutMeImage.width}
           height={aboutMeImage.height}
-        ></Image>
+        ></CustomImage>
         <div className={styles["home__about-me__content"]}>
           <h2 className={styles["home__about-me__content__heading"]}>
             {aboutMeTitle}

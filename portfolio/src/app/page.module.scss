@@ -7,6 +7,9 @@
     margin-bottom: 6rem;
     &__img {
       @include layout-mixins.image-style;
+      &--loading {
+        @include layout-mixins.is-loading-animation;
+      }
     }
 
     &__content {
@@ -48,6 +51,9 @@
     margin-bottom: 115px;
     &__img {
       @include layout-mixins.image-style;
+      &--loading {
+        @include layout-mixins.is-loading-animation;
+      }
     }
 
     &__content {
@@ -102,6 +108,9 @@
       &__img {
         width: 40%;
         object-fit: cover;
+        &--loading {
+          min-width: 40%;
+        }
       }
       &__content {
         margin-top: 0;
@@ -127,6 +136,9 @@
       gap: 125px;
       &__img {
         width: 50%;
+        &--loading {
+          min-width: 50%;
+        }
       }
     }
   }
