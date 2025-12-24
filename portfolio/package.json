@@ -10,7 +10,7 @@
     "scss:types": "typed-scss-modules \"src/**/*.module.scss\" --ignorePaths \"**/node_modules/**\" --exportType default --nameFormat none"
   },
   "dependencies": {
-    "next": "15.5.4",
+    "next": "15.5.9",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
