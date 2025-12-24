@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "singularName": "home-page",
+    "pluralName": "home-pages",
+    "displayName": "Page - Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "introHeading": {
+      "type": "text"
+    },
+    "introImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "introCtaUrl": {
+      "type": "string"
+    },
+    "introCtaContent": {
+      "type": "string"
+    },
+    "aboutMeTitle": {
+      "type": "string"
+    },
+    "aboutMeDescription": {
+      "type": "text"
+    },
+    "aboutMeImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "aboutMeCtaUrl": {
+      "type": "string"
+    },
+    "aboutMeCtaContent": {
+      "type": "string"
+    }
+  }
+}

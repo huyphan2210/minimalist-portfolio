@@ -1,0 +1,22 @@
+<svg
+  width="17"
+  height="13"
+  viewBox="0 0 17 13"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0.223633 8.44727L8.22363 12.4473L16.2236 8.44727"
+    stroke="#5FB4A2"
+  />
+  <path
+    opacity="0.5"
+    d="M0.223633 4.44727L8.22363 8.44727L16.2236 4.44727"
+    stroke="#5FB4A2"
+  />
+  <path
+    opacity="0.25"
+    d="M0.223633 0.447266L8.22363 4.44727L16.2236 0.447266"
+    stroke="#5FB4A2"
+  />
+</svg>

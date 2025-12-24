@@ -1,0 +1,145 @@
+@use "../styles/layout-mixins" as layout-mixins;
+@use "../styles/font-mixins" as font-mixins;
+
+.home {
+  &__intro {
+    display: block;
+    margin-bottom: 6rem;
+    &__img {
+      @include layout-mixins.image-style;
+      &--loading {
+        @include layout-mixins.is-loading-animation;
+      }
+    }
+
+    &__content {
+      margin-top: 1.5rem;
+
+      &__heading {
+        @include font-mixins.set-title-large;
+        margin-bottom: 2rem;
+      }
+
+      &__cta {
+        background-color: var(--dark-blue);
+        display: flex;
+        max-width: 12.5rem;
+        align-items: center;
+        text-decoration: none;
+        color: var(--white);
+        &__image {
+          padding: 1rem;
+          background-color: rgba($color: #000000, $alpha: 0.2);
+        }
+
+        span {
+          @include font-mixins.set-button-content;
+          margin: auto;
+        }
+
+        &:hover {
+          outline: solid 1px var(--dark-blue);
+          color: var(--dark-blue);
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  &__about-me {
+    display: block;
+    margin-bottom: 115px;
+    &__img {
+      @include layout-mixins.image-style;
+      &--loading {
+        @include layout-mixins.is-loading-animation;
+      }
+    }
+
+    &__content {
+      padding-block: 2rem;
+      margin-top: 2rem;
+      border-top: solid 1px
+        color-mix(in srgb, var(--grayish-dark-blue) 15%, transparent);
+      border-bottom: solid 1px
+        color-mix(in srgb, var(--grayish-dark-blue) 15%, transparent);
+
+      &__heading {
+        @include font-mixins.set-title-large;
+        margin-bottom: 1.75rem;
+      }
+
+      &__paragraph {
+        @include font-mixins.set-paragraph-large;
+        margin-bottom: 1.5rem;
+      }
+
+      &__cta {
+        @include font-mixins.set-button-content;
+        @include layout-mixins.call-to-action-style;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .home {
+    &__intro {
+      position: relative;
+      &__content {
+        max-width: 32.125rem;
+        background-color: var(--white);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-top: 3.5rem;
+        padding-right: 3.5rem;
+        margin-top: 0;
+
+        &__heading {
+          margin-bottom: 3rem;
+        }
+      }
+    }
+
+    &__about-me {
+      display: flex;
+      gap: 69px;
+      &__img {
+        width: 40%;
+        object-fit: cover;
+        &--loading {
+          min-width: 40%;
+        }
+      }
+      &__content {
+        margin-top: 0;
+        padding-block: 3.125rem 2.875rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .home {
+    &__intro {
+      &__content {
+        max-width: 445px;
+        &__heading {
+          @include font-mixins.set-title-extra-large;
+          margin-bottom: 53px;
+        }
+      }
+    }
+
+    &__about-me {
+      gap: 125px;
+      &__img {
+        width: 50%;
+        &--loading {
+          min-width: 50%;
+        }
+      }
+    }
+  }
+}

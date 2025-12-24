@@ -1,0 +1,40 @@
+@mixin image-style {
+  width: 100%;
+  height: unset;
+}
+
+@mixin call-to-action-style {
+  color: var(--grayish-dark-blue);
+  padding-block: 17px;
+  padding-inline: 33px;
+  border: solid 1px var(--grayish-dark-blue);
+  display: inline-block;
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--grayish-dark-blue);
+  }
+}
+
+@mixin is-loading-animation {
+  background-color: var(--grey-2);
+  animation-name: moving-gradient;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moving-gradient {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
