@@ -5,6 +5,7 @@ export default {
     enabled: true,
     config: {
       output: "../../portfolio/src/interfaces",
+      jwtSecret: process.env.JWT_SECRET,
     },
   },
 };
