@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         port: "1337",
       },
+      {
+        hostname: process.env.STRAPI_BASE_URL || "",
+      },
     ],
   },
 };
