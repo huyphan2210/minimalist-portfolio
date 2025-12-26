@@ -1,13 +1,11 @@
 "use client";
 
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
-import Image from "next/image";
-import { FC, ReactEventHandler } from "react";
+import { FC, ReactEventHandler, useEffect, useRef } from "react";
 
 export interface ICustomImage {
   className: string;
   isLoadingClassName?: string;
-  src: string | StaticImport;
+  src: string;
   loading: "eager" | "lazy" | undefined;
   alt: string;
   width?: number | `${number}` | undefined;
@@ -23,27 +21,32 @@ const CustomImage: FC<ICustomImage> = ({
   height,
   isLoadingClassName,
 }) => {
-  const handleImageAfterLoaded: ReactEventHandler<HTMLImageElement> = (
-    event
-  ) => {
-    if (!isLoadingClassName) {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (!isLoadingClassName) return;
+
+    const img = document.querySelector(`.${className}`) as HTMLImageElement;
+    if (img?.complete) {
+      img.classList.remove(isLoadingClassName);
       return;
     }
 
-    const image = event.target as HTMLImageElement;
-    image.classList.remove(isLoadingClassName);
-  };
+    img.addEventListener("load", () => {
+      img.classList.remove(isLoadingClassName);
+    });
+  }, []);
 
   return (
-    <Image
+    <img
+      ref={imgRef}
       className={`${className} ${isLoadingClassName}`}
       src={src}
       loading={loading}
       alt={alt}
       width={width}
       height={height}
-      onLoad={handleImageAfterLoaded}
-    ></Image>
+    ></img>
   );
 };
 
