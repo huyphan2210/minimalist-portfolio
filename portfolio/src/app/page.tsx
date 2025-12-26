@@ -1,13 +1,15 @@
+import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import goDownIcon from "../icons/go-down.svg";
-
-import styles from "./page.module.scss";
-import HomeServices from "@/services/home.services";
 import CustomImage from "@/components/CustomImage/CustomImage";
 
-const Home = async () => {
+import styles from "./page.module.scss";
+import goDownIcon from "../icons/go-down.svg";
+
+import HomeServices from "@/services/home.services";
+
+const Home: FC = async () => {
   const {
     introHeading,
     introImageURL,

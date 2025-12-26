@@ -481,9 +481,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     aboutMeCtaContent: Schema.Attribute.String;
     aboutMeCtaUrl: Schema.Attribute.String;
     aboutMeDescription: Schema.Attribute.Text;
-    aboutMeImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    aboutMeImageURL: Schema.Attribute.String;
     aboutMeTitle: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -491,9 +489,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     introCtaContent: Schema.Attribute.String;
     introCtaUrl: Schema.Attribute.String;
     introHeading: Schema.Attribute.Text;
-    introImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
+    introImageURL: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
