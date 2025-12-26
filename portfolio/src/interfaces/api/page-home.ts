@@ -1,4 +1,4 @@
-export interface HomePage_Plain {
+export interface PageHome_Plain {
   id: number;
   createdAt: Date;
   updatedAt: Date;
