@@ -24,7 +24,7 @@ export const internalNavigationList: IInternalNavigation[] = [
   },
   {
     pageTitle: "Contact Me",
-    url: "/contact-me",
+    url: "/contact",
   },
 ];
 

@@ -1,5 +1,5 @@
 import { Layout_Plain } from "@/interfaces/api/layout";
-import BaseServices from "./base.service";
+import BaseServices from "./base.services";
 import { ILayoutApi } from "@/interfaces/layout";
 
 class LayoutService extends BaseServices {
@@ -25,7 +25,7 @@ class LayoutService extends BaseServices {
   static DEFAULT_LAYOUT_DATA: Required<Layout_Plain> = {
     id: 2,
     contactMeHeading: "Interested in doing a project together?",
-    contactMeURL: "/contact-me",
+    contactMeURL: "/contact",
     contactMeButtonContent: "CONTACT ME",
     createdAt: new Date(),
     updatedAt: new Date(),

@@ -1,5 +1,10 @@
-import { HomePage_Plain } from "./api/home-page";
+import { PageContact_Plain } from "./api/page-contact";
+import { PageHome_Plain } from "./api/page-home";
 
 export interface IHomePageApi {
-  data: HomePage_Plain
+  data: PageHome_Plain;
+}
+
+export interface IContactPageApi {
+  data: PageContact_Plain;
 }
