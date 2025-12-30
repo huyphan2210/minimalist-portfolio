@@ -1,0 +1,14 @@
+@use "../../styles/font-mixins" as font-mixins;
+
+.contact {
+  &__heading {
+    display: none;
+  }
+
+  &__section {
+    display: block;
+    &__title {
+      @include font-mixins.set-title-large;
+    }
+  }
+}

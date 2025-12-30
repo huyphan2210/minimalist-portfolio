@@ -22,14 +22,11 @@
   transition: 0.3s;
 }
 
-html,
 body {
-  height: 100%;
-}
-
-body {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-width: 125rem;
   justify-self: center;  
 }

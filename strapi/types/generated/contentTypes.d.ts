@@ -534,6 +534,43 @@ export interface ApiLayoutLayout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPageContactPageContact extends Struct.SingleTypeSchema {
+  collectionName: 'page_contacts';
+  info: {
+    displayName: 'Page - Contact';
+    pluralName: 'page-contacts';
+    singularName: 'page-contact';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    firstFormFieldLabel: Schema.Attribute.String;
+    firstFormFieldPlaceholder: Schema.Attribute.String;
+    firstSectionParagraph: Schema.Attribute.Text;
+    firstSectionTitle: Schema.Attribute.String;
+    formSubmitButtonContent: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-contact.page-contact'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    secondFormFieldLabel: Schema.Attribute.String;
+    secondFormFieldPlaceholder: Schema.Attribute.String;
+    secondSectionTitle: Schema.Attribute.String;
+    thirdFormFieldLabel: Schema.Attribute.String;
+    thirdFormFieldPlaceholder: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1047,6 +1084,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::layout.layout': ApiLayoutLayout;
+      'api::page-contact.page-contact': ApiPageContactPageContact;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
