@@ -1,9 +1,13 @@
+import { Resend } from "resend";
+
 import { PageContact_Plain } from "@/interfaces/api/page-contact";
-import BaseServices from "./base.services";
 import { IContactPageApi } from "@/interfaces/page";
+
+import BaseServices from "./base.services";
 
 class ContactServices extends BaseServices {
   private static contactPageUrl = this.apiBaseUrl + "/page-contact";
+  private static resend = new Resend(process.env.RESEND_API_KEY);
 
   static async getContactPageData(): Promise<Required<PageContact_Plain>> {
     const { data } = await this.handleGetRequest<IContactPageApi>(
@@ -46,6 +50,26 @@ class ContactServices extends BaseServices {
         data.formSubmitButtonContent ||
         this.DEFAULT_CONTACT_PAGE_DATA.formSubmitButtonContent,
     };
+  }
+
+  static async sendContactInformation(
+    contactInformation: Record<string, FormDataEntryValue>
+  ) {
+    let htmlContent = "";
+    for (const key in contactInformation) {
+      htmlContent += `${key}: ${contactInformation[key]} <br/>`;
+    }
+
+    try {
+      this.resend.emails.send({
+        from: process.env.CONTACT_SENDER_EMAIL || "",
+        to: process.env.CONTACT_RECEIVER_EMAIL || "",
+        subject: "Someone reached out via Minimalist Portfolio",
+        html: htmlContent,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   private static DEFAULT_CONTACT_PAGE_DATA: Required<PageContact_Plain> = {
