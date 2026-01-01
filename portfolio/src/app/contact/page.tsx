@@ -1,7 +1,10 @@
 import { FC } from "react";
+import Image from "next/image";
 import styles from "./page.module.scss";
 
 import ContactServices from "@/services/contact.services";
+import { profileNavigationList } from "@/common/navigationList";
+import Link from "next/link";
 
 const Contact: FC = async () => {
   const {
@@ -28,6 +31,8 @@ const Contact: FC = async () => {
     contact__form__field__label,
     contact__form__field__input,
     contact__form__btn,
+    contact__section__profiles,
+    contact__section__profiles__item,
   } = styles;
 
   const submitForm = async (formData: FormData) => {
@@ -39,6 +44,19 @@ const Contact: FC = async () => {
       <section className={contact__section}>
         <h2 className={contact__section__title}>{firstSectionTitle}</h2>
         <p className={contact__section__paragraph}>{firstSectionParagraph}</p>
+        <ul className={contact__section__profiles}>
+          {profileNavigationList.map((navigation, index) => (
+            <li className={contact__section__profiles__item} key={index}>
+              <Link target="_blank" href={navigation.url}>
+                <Image
+                  src={navigation.darkIcon}
+                  loading="lazy"
+                  alt="Profile"
+                />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
       <form className={contact__form} action={submitForm}>
         <h2 className={contact__form__title}>{secondSectionTitle}</h2>

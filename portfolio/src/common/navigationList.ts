@@ -1,5 +1,7 @@
-import github from "../icons/github.svg";
-import linkedIn from "../icons/linkedin.svg";
+import githubLight from "../icons/github.svg";
+import linkedInLight from "../icons/linkedin.svg";
+import githubDark from "../icons/github-dark.svg";
+import linkedInDark from "../icons/linkedin-dark.svg";
 
 interface INavigationList {
   url: string;
@@ -10,7 +12,8 @@ export interface IInternalNavigation extends INavigationList {
 }
 
 export interface IProfileNavigation extends INavigationList {
-  profileIcon: string;
+  lightIcon: string;
+  darkIcon: string;
 }
 
 export const internalNavigationList: IInternalNavigation[] = [
@@ -30,11 +33,13 @@ export const internalNavigationList: IInternalNavigation[] = [
 
 export const profileNavigationList: IProfileNavigation[] = [
   {
-    profileIcon: github,
+    lightIcon: githubLight,
+    darkIcon: githubDark,
     url: "https://github.com/huyphan2210",
   },
   {
-    profileIcon: linkedIn,
+    lightIcon: linkedInLight,
+    darkIcon: linkedInDark,
     url: "https://www.linkedin.com/in/huy-phan-7924aa25a/",
   },
 ];

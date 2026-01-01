@@ -1,4 +1,5 @@
 @use "../../styles/font-mixins" as font-mixins;
+@use "../../components/layout/mixin" as layout-mixins;
 
 @mixin field-label {
   @include font-mixins.set-paragraph-large;
@@ -26,7 +27,6 @@
     var(--grayish-dark-blue) 15%,
     transparent
   );
-  margin-bottom: 1.5rem;
 }
 
 .contact {
@@ -35,6 +35,9 @@
   }
 
   &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
     margin-bottom: 2rem;
 
     &::before {
@@ -43,11 +46,24 @@
 
     &__title {
       @include font-mixins.set-title-large;
-      margin-bottom: 1.5rem;
     }
 
     &__paragraph {
       @include font-mixins.set-paragraph-large;
+    }
+
+    &__profiles {
+      display: flex;
+      justify-content: center;
+      align-self: start;
+      gap: 1rem;
+      list-style-type: none;
+      &__item {
+        color: var(--white);
+        a {
+          @include layout-mixins.internal-link-style();
+        }
+      }
     }
   }
 
@@ -58,7 +74,6 @@
 
     &::before {
       @include horizontal-bar;
-      margin-bottom: 2rem;
     }
 
     &__title {
@@ -113,9 +128,11 @@
 
 @media screen and (min-width: 48rem) {
   .contact {
-    &__section {
-      &::before {
-        margin-bottom: 2rem;
+    &__section,
+    &__form {
+      &::before,
+      &__title {
+        margin-bottom: 0.5rem;
       }
     }
   }
@@ -129,18 +146,27 @@
       align-items: flex-start;
       column-gap: 7.8125rem;
       grid-template-columns: 21.875rem auto;
-      grid-template-rows: repeat(4, auto);
       &::before {
         grid-column: 1 / -1;
         grid-row: 1 / 2;
-        margin-bottom: 3rem;
+        margin-bottom: 1.5rem;
       }
 
       &__title {
         grid-row: 2 / -1;
       }
     }
+
+    &__section {
+      grid-template-rows: repeat(3, auto);
+      &__profiles {
+        align-self: unset;
+        justify-self: start;
+      }
+    }
+
     &__form {
+      grid-template-rows: repeat(4, auto);
       &::before {
         margin-bottom: 1.5rem;
       }
