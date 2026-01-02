@@ -49,7 +49,7 @@ const LayoutFooter: FC<ILayoutFooter> = ({
             >
               <Link target="_blank" href={navigation.url}>
                 <Image
-                  src={navigation.profileIcon}
+                  src={navigation.lightIcon}
                   loading="lazy"
                   alt="Profile"
                 />

@@ -1,5 +1,6 @@
+"use client";
+
 import { FC } from "react";
-import { headers } from "next/headers";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,15 +11,14 @@ import logo from "./../../../icons/logo.svg";
 import MobileNavHandler from "./mobile-nav-handler/mobile-nav-handler";
 
 import { IInternalNavigation } from "@/common/navigationList";
-import { REQUEST_HEADERS } from "@/middleware";
+import { usePathname } from "next/navigation";
 
 export interface ILayoutHeader {
   navigationList: IInternalNavigation[];
 }
 
-const LayoutHeader: FC<ILayoutHeader> = async ({ navigationList }) => {
-  const headerInfo = await headers();
-  const pathName = headerInfo.get(REQUEST_HEADERS.pathName);
+const LayoutHeader: FC<ILayoutHeader> = ({ navigationList }) => {
+  const pathName = usePathname();
   return (
     <header className={styles.header}>
       <Link href={"/"} className={styles["header__home-link"]}>

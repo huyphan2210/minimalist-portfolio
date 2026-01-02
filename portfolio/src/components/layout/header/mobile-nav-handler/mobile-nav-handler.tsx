@@ -8,8 +8,10 @@ import close from "./../../../../icons/close.svg";
 
 import styles from "./mobile-nav-handler.module.scss";
 import headerStyles from "../header.module.scss";
+import { usePathname } from "next/navigation";
 
 const MobileNavHandler: FC = () => {
+  const pathName = usePathname();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [navigationList, setNavigationList] = useState<Element>();
 
@@ -28,6 +30,8 @@ const MobileNavHandler: FC = () => {
       document.getElementsByClassName(headerStyles.header__nav__list)[0]
     );
   }, []);
+
+  useEffect(closeNavigationList, [pathName]);
 
   return (
     <>

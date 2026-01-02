@@ -1,0 +1,180 @@
+@use "../../styles/font-mixins" as font-mixins;
+@use "../../components/layout/mixin" as layout-mixins;
+
+@mixin field-label {
+  @include font-mixins.set-paragraph-large;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--grayish-dark-blue);
+  margin-bottom: 0.5rem;
+}
+
+@mixin field-input {
+  @include field-label;
+  margin-bottom: 0;
+  font-weight: 400;
+  &:focus {
+    outline: solid 1px var(--dark-blue);
+  }
+}
+
+@mixin horizontal-bar {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: color-mix(
+    in srgb,
+    var(--grayish-dark-blue) 15%,
+    transparent
+  );
+}
+
+.contact {
+  &__heading {
+    display: none;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    &::before {
+      @include horizontal-bar;
+    }
+
+    &__title {
+      @include font-mixins.set-title-large;
+    }
+
+    &__paragraph {
+      @include font-mixins.set-paragraph-large;
+    }
+
+    &__profiles {
+      display: flex;
+      justify-content: center;
+      align-self: start;
+      gap: 1rem;
+      list-style-type: none;
+      &__item {
+        color: var(--white);
+        a {
+          @include layout-mixins.internal-link-style();
+        }
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &::before {
+      @include horizontal-bar;
+    }
+
+    &__title {
+      @include font-mixins.set-title-large;
+    }
+
+    &__field {
+      display: block;
+      &__label {
+        @include field-label;
+      }
+
+      &__input {
+        @include field-input;
+
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        padding: 9px 1rem;
+        background-color: color-mix(
+          in srgb,
+          var(--grayish-dark-blue) 10%,
+          transparent
+        );
+
+        &::placeholder {
+          opacity: 40%;
+        }
+
+        &--textarea {
+          min-height: 6rem;
+        }
+      }
+    }
+
+    &__btn {
+      @include font-mixins.set-button-content;
+      background-color: var(--dark-blue);
+      color: var(--white);
+      align-self: flex-start;
+      padding: 17px 1.5rem;
+
+      &:hover {
+        outline: solid 1px var(--dark-blue);
+        color: var(--dark-blue);
+        background-color: var(--white);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .contact {
+    &__section,
+    &__form {
+      &::before,
+      &__title {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .contact {
+    &__section,
+    &__form {
+      display: grid;
+      align-items: flex-start;
+      column-gap: 7.8125rem;
+      grid-template-columns: 21.875rem auto;
+      &::before {
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+        margin-bottom: 1.5rem;
+      }
+
+      &__title {
+        grid-row: 2 / -1;
+      }
+    }
+
+    &__section {
+      grid-template-rows: repeat(3, auto);
+      &__profiles {
+        align-self: unset;
+        justify-self: start;
+      }
+    }
+
+    &__form {
+      grid-template-rows: repeat(4, auto);
+      &::before {
+        margin-bottom: 1.5rem;
+      }
+
+      &__btn {
+        grid-column: 2 / -1;
+        width: fit-content;
+      }
+    }
+  }
+}

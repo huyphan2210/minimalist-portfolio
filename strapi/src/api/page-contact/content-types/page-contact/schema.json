@@ -1,0 +1,45 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_contacts",
+  "info": {
+    "singularName": "page-contact",
+    "pluralName": "page-contacts",
+    "displayName": "Page - Contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstSectionTitle": {
+      "type": "string"
+    },
+    "firstSectionParagraph": {
+      "type": "text"
+    },
+    "secondSectionTitle": {
+      "type": "string"
+    },
+    "firstFormFieldLabel": {
+      "type": "string"
+    },
+    "firstFormFieldPlaceholder": {
+      "type": "string"
+    },
+    "secondFormFieldLabel": {
+      "type": "string"
+    },
+    "secondFormFieldPlaceholder": {
+      "type": "string"
+    },
+    "thirdFormFieldLabel": {
+      "type": "string"
+    },
+    "thirdFormFieldPlaceholder": {
+      "type": "string"
+    },
+    "formSubmitButtonContent": {
+      "type": "string"
+    }
+  }
+}
