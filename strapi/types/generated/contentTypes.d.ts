@@ -534,6 +534,34 @@ export interface ApiPageContactPageContact extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPagePortfolioPagePortfolio extends Struct.SingleTypeSchema {
+  collectionName: 'page_portfolios';
+  info: {
+    displayName: 'Page - Portfolio';
+    pluralName: 'page-portfolios';
+    singularName: 'page-portfolio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-portfolio.page-portfolio'
+    > &
+      Schema.Attribute.Private;
+    projects: Schema.Attribute.Component<'project.project-brief-info', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1047,6 +1075,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::layout.layout': ApiLayoutLayout;
       'api::page-contact.page-contact': ApiPageContactPageContact;
+      'api::page-portfolio.page-portfolio': ApiPagePortfolioPagePortfolio;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

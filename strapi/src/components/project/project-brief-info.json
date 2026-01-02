@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_project_project_brief_infos",
+  "info": {
+    "displayName": "ProjectBriefInfo"
+  },
+  "options": {},
+  "attributes": {
+    "projectName": {
+      "type": "string"
+    },
+    "projectDescription": {
+      "type": "text"
+    },
+    "projectRelativeURL": {
+      "type": "string"
+    },
+    "projectRelativeCtaContent": {
+      "type": "string"
+    },
+    "projectThumbnailURL": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
