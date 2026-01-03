@@ -16,6 +16,17 @@
   }
 }
 
+@mixin horizontal-bar {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: color-mix(
+    in srgb,
+    var(--grayish-dark-blue) 15%,
+    transparent
+  );
+}
+
 @mixin is-loading-animation {
   background-color: var(--grey-2);
   animation-name: moving-gradient;

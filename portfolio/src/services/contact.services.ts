@@ -6,12 +6,12 @@ import { IContactPageApi } from "@/interfaces/page";
 import BaseServices from "./base.services";
 
 class ContactServices extends BaseServices {
-  private static contactPageUrl = this.apiBaseUrl + "/page-contact";
+  private static contactApiUrl = this.apiBaseUrl + "/page-contact";
   private static resend = new Resend(process.env.RESEND_API_KEY);
 
   static async getContactPageData(): Promise<Required<PageContact_Plain>> {
     const { data } = await this.handleGetRequest<IContactPageApi>(
-      this.contactPageUrl
+      this.contactApiUrl
     );
     return {
       id: data.id || this.DEFAULT_CONTACT_PAGE_DATA.id,
