@@ -59,6 +59,7 @@
       &__item {
         flex-direction: unset;
         gap: 69px;
+        min-height: 26.125rem;
 
         &:nth-child(even) {
           flex-direction: row-reverse;
@@ -66,6 +67,29 @@
 
         &__img {
           width: 50%;
+        }
+
+        &__content {
+          gap: 2rem;
+          &::before {
+            margin-bottom: auto;
+          }
+          &::after {
+            margin-top: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .portfolio {
+    &__projects {
+      &__item {
+        min-height: 31.25rem;
+        &__content {
+          gap: 1.5rem;
         }
       }
     }
