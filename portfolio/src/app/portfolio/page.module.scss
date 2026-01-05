@@ -40,13 +40,32 @@
         }
 
         &__description {
-          @include font-mixins.set-paragraph-large;
+          @include font-mixins.set-paragraph-medium;
         }
 
         &__cta {
           @include font-mixins.set-button-content;
           @include layout-mixins.call-to-action-style;
           align-self: self-start;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .portfolio {
+    &__projects {
+      &__item {
+        flex-direction: unset;
+        gap: 69px;
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        &__img {
+          width: 50%;
         }
       }
     }
