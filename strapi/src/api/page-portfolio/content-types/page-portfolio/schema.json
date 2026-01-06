@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "page_portfolios",
+  "info": {
+    "singularName": "page-portfolio",
+    "pluralName": "page-portfolios",
+    "displayName": "Page - Portfolio"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projects": {
+      "type": "component",
+      "component": "project.project-brief-info",
+      "repeatable": true
+    }
+  }
+}

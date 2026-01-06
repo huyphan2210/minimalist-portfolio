@@ -1,0 +1,97 @@
+@use "../../styles/font-mixins" as font-mixins;
+@use "../../styles/layout-mixins" as layout-mixins;
+
+.portfolio {
+  &__heading {
+    display: none;
+  }
+
+  &__projects {
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    margin-bottom: 5rem;
+    &__item {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      &__img {
+        width: 100%;
+        min-height: 18rem;
+        object-fit: cover;
+        &--loading {
+          @include layout-mixins.is-loading-animation;
+        }
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        &::before,
+        &::after {
+          @include layout-mixins.horizontal-bar;
+        }
+
+        &__title {
+          @include font-mixins.set-title-large;
+        }
+
+        &__description {
+          @include font-mixins.set-paragraph-medium;
+        }
+
+        &__cta {
+          @include font-mixins.set-button-content;
+          @include layout-mixins.call-to-action-style;
+          align-self: self-start;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  .portfolio {
+    &__projects {
+      &__item {
+        flex-direction: unset;
+        gap: 69px;
+        min-height: 26.125rem;
+
+        &:nth-child(even) {
+          flex-direction: row-reverse;
+        }
+
+        &__img {
+          width: 50%;
+        }
+
+        &__content {
+          gap: 2rem;
+          &::before {
+            margin-bottom: auto;
+          }
+          &::after {
+            margin-top: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 90rem) {
+  .portfolio {
+    &__projects {
+      &__item {
+        min-height: 31.25rem;
+        &__content {
+          gap: 1.5rem;
+        }
+      }
+    }
+  }
+}

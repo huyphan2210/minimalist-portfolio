@@ -1,5 +1,6 @@
 @use "../../styles/font-mixins" as font-mixins;
-@use "../../components/layout/mixin" as layout-mixins;
+@use "../../styles/layout-mixins" as layout-mixins;
+@use "../../components/layout/mixin" as components-layout-mixins;
 
 @mixin field-label {
   @include font-mixins.set-paragraph-large;
@@ -18,17 +19,6 @@
   }
 }
 
-@mixin horizontal-bar {
-  content: "";
-  display: block;
-  height: 1px;
-  background-color: color-mix(
-    in srgb,
-    var(--grayish-dark-blue) 15%,
-    transparent
-  );
-}
-
 .contact {
   &__heading {
     display: none;
@@ -41,7 +31,7 @@
     margin-bottom: 2rem;
 
     &::before {
-      @include horizontal-bar;
+      @include layout-mixins.horizontal-bar;
     }
 
     &__title {
@@ -61,7 +51,7 @@
       &__item {
         color: var(--white);
         a {
-          @include layout-mixins.internal-link-style();
+          @include components-layout-mixins.internal-link-style();
         }
       }
     }
@@ -73,7 +63,7 @@
     gap: 1.5rem;
 
     &::before {
-      @include horizontal-bar;
+      @include layout-mixins.horizontal-bar;
     }
 
     &__title {
