@@ -534,6 +534,35 @@ export interface ApiPageContactPageContact extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiPagePortfilioDetailPagePortfilioDetail
+  extends Struct.SingleTypeSchema {
+  collectionName: 'page_portfilio_details';
+  info: {
+    displayName: 'Page - Portfilio Detail';
+    pluralName: 'page-portfilio-details';
+    singularName: 'page-portfilio-detail';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-portfilio-detail.page-portfilio-detail'
+    > &
+      Schema.Attribute.Private;
+    projects: Schema.Attribute.Component<'project.project-full-info', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPagePortfolioPagePortfolio extends Struct.SingleTypeSchema {
   collectionName: 'page_portfolios';
   info: {
@@ -1075,6 +1104,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::layout.layout': ApiLayoutLayout;
       'api::page-contact.page-contact': ApiPageContactPageContact;
+      'api::page-portfilio-detail.page-portfilio-detail': ApiPagePortfilioDetailPagePortfilioDetail;
       'api::page-portfolio.page-portfolio': ApiPagePortfolioPagePortfolio;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

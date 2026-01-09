@@ -2,8 +2,8 @@ import { PageContact_Plain } from "./api/page-contact";
 import { PageHome_Plain } from "./api/page-home";
 import {
   PagePortfolio_Plain,
-  ProjectBriefInfo_Plain,
 } from "./api/page-portfolio";
+import { ProjectFullInfo } from "./api/page-portfolio-details";
 
 export interface IHomePageApi {
   data: PageHome_Plain;
@@ -18,5 +18,5 @@ export interface IPortfolioPageApi {
 }
 
 export interface IPortfolioDetailsPageApi {
-  data: ProjectBriefInfo_Plain;
+  data: ProjectFullInfo;
 }

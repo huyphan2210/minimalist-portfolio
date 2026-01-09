@@ -4,7 +4,7 @@ import { IPortfolioDetailsPageApi } from "@/interfaces/page";
 
 class PortfolioDetailsServices extends BaseServices {
   private static getPortfolioDetailsApiUrl(projectSlug: string) {
-    return `${this.apiBaseUrl}/page-portfolio?filters[slug][$eq]=${projectSlug}&populate=*`;
+    return `${this.apiBaseUrl}/page-project-detail?filters[slug][$eq]=${projectSlug}&populate=*`;
   }
 
   //   TODO: Change ProjectBriefInfo_Plain to full info of the project

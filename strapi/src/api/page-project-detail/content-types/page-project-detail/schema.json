@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_project_details",
+  "info": {
+    "singularName": "page-project-detail",
+    "pluralName": "page-project-details",
+    "displayName": "Page - Project Details"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "project": {
+      "type": "component",
+      "component": "project.project-full-info",
+      "repeatable": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}
