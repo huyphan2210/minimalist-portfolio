@@ -9,7 +9,6 @@ export interface ProjectProjectBriefInfo extends Struct.ComponentSchema {
     projectDescription: Schema.Attribute.Text;
     projectName: Schema.Attribute.String;
     projectRelativeCtaContent: Schema.Attribute.String;
-    projectRelativeURL: Schema.Attribute.String;
     projectThumbnailURL: Schema.Attribute.String;
   };
 }

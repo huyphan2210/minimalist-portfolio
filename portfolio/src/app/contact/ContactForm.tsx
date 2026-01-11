@@ -1,7 +1,6 @@
 "use client";
 
-import { FC, FormEventHandler } from "react";
-import { useFormStatus } from "react-dom";
+import { FC } from "react";
 
 import styles from "./page.module.scss";
 import { submitForm } from "./action";

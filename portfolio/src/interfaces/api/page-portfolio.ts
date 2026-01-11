@@ -9,7 +9,6 @@ export interface PagePortfolio_Plain {
 export interface ProjectBriefInfo_Plain {
   projectName?: string;
   projectDescription?: string;
-  projectRelativeURL?: string;
   projectRelativeCtaContent?: string;
   projectThumbnailURL?: string;
 }

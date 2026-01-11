@@ -6,7 +6,8 @@ import BaseServices from "./base.services";
 import { IPortfolioPageApi } from "@/interfaces/page";
 
 class PortfolioServices extends BaseServices {
-  private static portfolioApiUrl = this.apiBaseUrl + "/page-portfolio?populate=*";
+  private static portfolioApiUrl =
+    this.apiBaseUrl + "/page-portfolio?populate=*";
 
   static async getPortfolioPageData(): Promise<Required<PagePortfolio_Plain>> {
     const { data } = await this.handleGetRequest<IPortfolioPageApi>(
@@ -19,9 +20,6 @@ class PortfolioServices extends BaseServices {
       project.projectDescription =
         project.projectDescription ||
         this.DEFAULT_PORTFOLIO_PROJECT_DATA.projectDescription;
-      project.projectRelativeURL =
-        project.projectRelativeURL ||
-        this.DEFAULT_PORTFOLIO_PROJECT_DATA.projectRelativeURL;
       project.projectRelativeCtaContent =
         project.projectRelativeCtaContent ||
         this.DEFAULT_PORTFOLIO_PROJECT_DATA.projectRelativeCtaContent;
@@ -52,7 +50,6 @@ class PortfolioServices extends BaseServices {
     {
       projectName: "This is a mystery",
       projectDescription: "This is also another mystery",
-      projectRelativeURL: "/portfolio",
       projectRelativeCtaContent: "NOT AVAILABLE",
       projectThumbnailURL:
         "https://res.cloudinary.com/dejteftxn/image/upload/v1736743752/Books_lyxqds.avif",

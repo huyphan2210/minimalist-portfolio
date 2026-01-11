@@ -33,7 +33,7 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
     projectStaticPreviewsTitle,
     projectPreviewImgURLs,
   } = await PortfolioDetailsServices.getPortfolioDetailPageData(
-    params.projectName
+    params.projectName.toLocaleLowerCase()
   );
 
   return (
@@ -45,45 +45,96 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
         alt={projectTitle}
         loading="lazy"
       />
-      <section>
-        <h1>{projectTitle}</h1>
-        <p>{projectDescription}</p>
-        {projectCategories.length > 0 && (
-          <span>
-            {projectCategories.map((category, index) =>
-              index > 0 ? ` / ${category.content}` : category.content
+      <div className={styles["porfolio-details__content"]}>
+        <section className={styles["porfolio-details__content__intro-section"]}>
+          <h1
+            className={
+              styles["porfolio-details__content__intro-section__page-heading"]
+            }
+          >
+            {projectTitle}
+          </h1>
+          <p
+            className={
+              styles["porfolio-details__content__intro-section__project-desc"]
+            }
+          >
+            {projectDescription}
+          </p>
+          <div
+            className={
+              styles["porfolio-details__content__intro-section__labels"]
+            }
+          >
+            {projectCategories.length > 0 && (
+              <span
+                className={
+                  styles[
+                    "porfolio-details__content__intro-section__labels__categories"
+                  ]
+                }
+              >
+                {projectCategories.map((category, index) =>
+                  index > 0 ? ` / ${category.content}` : category.content
+                )}
+              </span>
             )}
-          </span>
-        )}
-        {projectTechnologies.length > 0 && (
-          <span>
-            {projectTechnologies.map((tech, index) =>
-              index > 0 ? ` / ${tech.content}` : tech.content
+            {projectTechnologies.length > 0 && (
+              <span
+                className={
+                  styles[
+                    "porfolio-details__content__intro-section__labels__technologies"
+                  ]
+                }
+              >
+                {projectTechnologies.map((tech, index) =>
+                  index > 0 ? ` / ${tech.content}` : tech.content
+                )}
+              </span>
             )}
-          </span>
-        )}
-        <Link href={projectLiveURL} target="_blank">
-          {projectCtaContent}
-        </Link>
-      </section>
-      <section>
-        <h2>{projectBackgroundTitle}</h2>
-        <p>{projectBackgroundDescription}</p>
-      </section>
-      <section>
-        <h2>{projectStaticPreviewsTitle}</h2>
-        {projectPreviewImgURLs.length > 0 &&
-          projectPreviewImgURLs.map((url, index) => (
-            <CustomImage
-              key={index}
-              // className={portfolio__projects__item__img}
-              // isLoadingClassName={styles["portfolio__projects__item__img--loading"]}
-              src={url.content || ""}
-              alt={`${projectTitle} image`}
-              loading="lazy"
-            />
-          ))}
-      </section>
+          </div>
+
+          <Link
+            className={styles["porfolio-details__content__intro-section__cta"]}
+            href={projectLiveURL}
+            target="_blank"
+          >
+            {projectCtaContent}
+          </Link>
+        </section>
+        <section className={styles["porfolio-details__content__section"]}>
+          <h2 className={styles["porfolio-details__content__section__heading"]}>
+            {projectBackgroundTitle}
+          </h2>
+          <p
+            className={
+              styles["porfolio-details__content__section__description"]
+            }
+          >
+            {projectBackgroundDescription}
+          </p>
+        </section>
+        <section className={styles["porfolio-details__content__section"]}>
+          <h2
+            className={`${styles["porfolio-details__content__section__heading"]} ${styles["porfolio-details__content__section__heading--static-previews"]}`}
+          >
+            {projectStaticPreviewsTitle}
+          </h2>
+          {projectPreviewImgURLs.length > 0 &&
+            projectPreviewImgURLs.map((url, index) => (
+              <CustomImage
+                key={index}
+                className={styles["porfolio-details__content__section__img"]}
+                isLoadingClassName={
+                  styles["porfolio-details__content__section__img--loading"]
+                }
+                src={url.content || ""}
+                alt={`${projectTitle} image`}
+                loading="lazy"
+              />
+            ))}
+        </section>
+      </div>
     </>
   );
 };

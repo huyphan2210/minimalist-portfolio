@@ -11,9 +11,6 @@
     "projectDescription": {
       "type": "text"
     },
-    "projectRelativeURL": {
-      "type": "string"
-    },
     "projectRelativeCtaContent": {
       "type": "string"
     },

@@ -3,14 +3,12 @@
 export interface ProjectBriefInfo {
   projectName?: string;
   projectDescription?: string;
-  projectRelativeURL?: string;
   projectRelativeCtaContent?: string;
   projectThumbnailURL?: string;
 }
 export interface ProjectBriefInfo_Plain {
   projectName?: string;
   projectDescription?: string;
-  projectRelativeURL?: string;
   projectRelativeCtaContent?: string;
   projectThumbnailURL?: string;
 }
@@ -18,7 +16,6 @@ export interface ProjectBriefInfo_Plain {
 export interface ProjectBriefInfo_NoRelations {
   projectName?: string;
   projectDescription?: string;
-  projectRelativeURL?: string;
   projectRelativeCtaContent?: string;
   projectThumbnailURL?: string;
 }
