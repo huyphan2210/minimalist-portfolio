@@ -14,26 +14,6 @@ export interface ProjectProjectBriefInfo extends Struct.ComponentSchema {
   };
 }
 
-export interface ProjectProjectFullInfo extends Struct.ComponentSchema {
-  collectionName: 'components_project_project_full_infos';
-  info: {
-    displayName: 'ProjectFullInfo';
-  };
-  attributes: {
-    projectBackgroundDescription: Schema.Attribute.Text;
-    projectBackgroundTitle: Schema.Attribute.String;
-    projectCategories: Schema.Attribute.Component<'utilities.string', true>;
-    projectCtaContent: Schema.Attribute.String;
-    projectDescription: Schema.Attribute.Text;
-    projectHeroImgURL: Schema.Attribute.String;
-    projectLiveURL: Schema.Attribute.String;
-    projectPreviewImgURLs: Schema.Attribute.Component<'utilities.string', true>;
-    projectStaticPreviewsTitle: Schema.Attribute.String;
-    projectTechnologies: Schema.Attribute.Component<'utilities.string', true>;
-    projectTitle: Schema.Attribute.String;
-  };
-}
-
 export interface UrlNavigation extends Struct.ComponentSchema {
   collectionName: 'components_url_navigations';
   info: {
@@ -60,7 +40,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'project.project-brief-info': ProjectProjectBriefInfo;
-      'project.project-full-info': ProjectProjectFullInfo;
       'url.navigation': UrlNavigation;
       'utilities.string': UtilitiesString;
     }

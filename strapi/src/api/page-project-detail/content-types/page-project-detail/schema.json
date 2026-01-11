@@ -11,17 +11,48 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "project": {
+    "projectHeroImgURL": {
+      "type": "string"
+    },
+    "projectTitle": {
+      "type": "string"
+    },
+    "projectDescription": {
+      "type": "text"
+    },
+    "projectCategories": {
       "type": "component",
-      "component": "project.project-full-info",
-      "repeatable": false
+      "component": "utilities.string",
+      "repeatable": true
+    },
+    "projectTechnologies": {
+      "type": "component",
+      "component": "utilities.string",
+      "repeatable": true
+    },
+    "projectLiveURL": {
+      "type": "string"
+    },
+    "projectCtaContent": {
+      "type": "string"
+    },
+    "projectBackgroundTitle": {
+      "type": "string"
+    },
+    "projectBackgroundDescription": {
+      "type": "text"
+    },
+    "projectStaticPreviewsTitle": {
+      "type": "string"
+    },
+    "projectPreviewImgURLs": {
+      "type": "component",
+      "component": "utilities.string",
+      "repeatable": true
     },
     "slug": {
       "type": "uid",
-      "targetField": "name"
-    },
-    "name": {
-      "type": "string"
+      "targetField": "projectTitle"
     }
   }
 }

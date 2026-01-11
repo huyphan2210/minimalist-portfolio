@@ -25,8 +25,24 @@ class BaseServices {
     }
   }
 
-  static returnMediaFullURL(url: string) {
-    return this.baseUrl + url;
+  protected static enrich<T extends object>(
+    base: T,
+    fallback: Partial<T>
+  ): Required<T> {
+    const result = { ...base };
+    for (const key in fallback) {
+      const value = result[key];
+
+      const isEmptyArray = Array.isArray(value) && value.length === 0;
+      const isEmptyString = value === "";
+      const isNullish = value == null;
+
+      if (isNullish || isEmptyString || isEmptyArray) {
+        result[key] = fallback[key] as T[typeof key];
+      }
+    }
+
+    return result as Required<T>;
   }
 }
 

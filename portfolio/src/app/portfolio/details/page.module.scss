@@ -1,5 +1,20 @@
+@use "../../../styles/font-mixins" as font-mixins;
+@use "../../../styles/layout-mixins" as layout-mixins;
+
 .porfolio-details {
-  //TODO
+  &__hero-img {
+    width: 100%;
+    &--loading {
+      @include layout-mixins.is-loading-animation;
+    }
+  }
+
+  &__section {
+    display: block;
+    &__page-heading {
+      @include font-mixins.set-title-large;
+    }
+  }
 }
 
 @media screen and (min-width: 48rem) {

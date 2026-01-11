@@ -13,43 +13,8 @@ class ContactServices extends BaseServices {
     const { data } = await this.handleGetRequest<IContactPageApi>(
       this.contactApiUrl
     );
-    return {
-      id: data.id || this.DEFAULT_CONTACT_PAGE_DATA.id,
-      createdAt: data.createdAt || this.DEFAULT_CONTACT_PAGE_DATA.createdAt,
-      updatedAt: data.updatedAt || this.DEFAULT_CONTACT_PAGE_DATA.updatedAt,
-      publishedAt:
-        data.publishedAt || this.DEFAULT_CONTACT_PAGE_DATA.publishedAt,
-      firstSectionTitle:
-        data.firstSectionTitle ||
-        this.DEFAULT_CONTACT_PAGE_DATA.firstSectionTitle,
-      firstSectionParagraph:
-        data.firstSectionParagraph ||
-        this.DEFAULT_CONTACT_PAGE_DATA.firstSectionParagraph,
-      secondSectionTitle:
-        data.secondSectionTitle ||
-        this.DEFAULT_CONTACT_PAGE_DATA.secondSectionTitle,
-      firstFormFieldLabel:
-        data.firstFormFieldLabel ||
-        this.DEFAULT_CONTACT_PAGE_DATA.firstFormFieldLabel,
-      firstFormFieldPlaceholder:
-        data.firstFormFieldPlaceholder ||
-        this.DEFAULT_CONTACT_PAGE_DATA.firstFormFieldPlaceholder,
-      secondFormFieldLabel:
-        data.secondFormFieldLabel ||
-        this.DEFAULT_CONTACT_PAGE_DATA.secondFormFieldLabel,
-      secondFormFieldPlaceholder:
-        data.secondFormFieldPlaceholder ||
-        this.DEFAULT_CONTACT_PAGE_DATA.secondFormFieldPlaceholder,
-      thirdFormFieldLabel:
-        data.thirdFormFieldLabel ||
-        this.DEFAULT_CONTACT_PAGE_DATA.thirdFormFieldLabel,
-      thirdFormFieldPlaceholder:
-        data.thirdFormFieldPlaceholder ||
-        this.DEFAULT_CONTACT_PAGE_DATA.thirdFormFieldPlaceholder,
-      formSubmitButtonContent:
-        data.formSubmitButtonContent ||
-        this.DEFAULT_CONTACT_PAGE_DATA.formSubmitButtonContent,
-    };
+
+    return this.enrich<PageContact_Plain>(data, this.DEFAULT_CONTACT_PAGE_DATA);
   }
 
   static async sendContactInformation(

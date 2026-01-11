@@ -3,10 +3,6 @@ export interface PagePortfolioDetail {
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
-  projects: ProjectFullInfo[];
-}
-
-export interface ProjectFullInfo {
   projectHeroImgURL?: string;
   projectTitle?: string;
   projectDescription?: string;
@@ -18,6 +14,7 @@ export interface ProjectFullInfo {
   projectBackgroundDescription?: string;
   projectStaticPreviewsTitle?: string;
   projectPreviewImgURLs: IString[];
+  slug?: string;
 }
 
 export interface IString {
