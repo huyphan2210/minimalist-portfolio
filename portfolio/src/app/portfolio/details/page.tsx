@@ -36,6 +36,11 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
     params.projectName.toLocaleLowerCase()
   );
 
+  const pagination =
+    await PortfolioDetailsServices.getPaginationForPortfolioDetails(
+      params.projectName.toLocaleLowerCase()
+    );
+
   return (
     <>
       <CustomImage
@@ -135,6 +140,56 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
             ))}
         </section>
       </div>
+      {pagination && (
+        <section className={styles["porfolio-details__pagination"]}>
+          <Link
+            className={styles["porfolio-details__pagination__url"]}
+            href={`/portfolio/details?projectName=${pagination.previous.projectTitle}`}
+          >
+            <svg
+              width="10"
+              height="17"
+              viewBox="0 0 10 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.70715 0.353516L0.707153 8.35352L8.70715 16.3535"
+                stroke="#33323D"
+              />
+            </svg>
+            <div
+              className={styles["porfolio-details__pagination__url__content"]}
+            >
+              <span>{pagination.previous.projectTitle}</span>
+              <span>Previous Project</span>
+            </div>
+          </Link>
+          <Link
+            className={styles["porfolio-details__pagination__url"]}
+            href={`/portfolio/details?projectName=${pagination.next.projectTitle}`}
+          >
+            <div
+              className={styles["porfolio-details__pagination__url__content"]}
+            >
+              <span>{pagination.next.projectTitle}</span>
+              <span>Next Project</span>
+            </div>
+            <svg
+              width="10"
+              height="17"
+              viewBox="0 0 10 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.353577 0.353516L8.35358 8.35352L0.353577 16.3535"
+                stroke="#33323D"
+              />
+            </svg>
+          </Link>
+        </section>
+      )}
     </>
   );
 };
