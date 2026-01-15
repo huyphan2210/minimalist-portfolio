@@ -142,6 +142,7 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
       </div>
       {pagination && (
         <section className={styles["porfolio-details__pagination"]}>
+          <div className={styles["porfolio-details__pagination__separate-line"]}></div>
           <Link
             className={styles["porfolio-details__pagination__url"]}
             href={`/portfolio/details?projectName=${pagination.previous.projectTitle}`}
@@ -169,12 +170,6 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
             className={styles["porfolio-details__pagination__url"]}
             href={`/portfolio/details?projectName=${pagination.next.projectTitle}`}
           >
-            <div
-              className={styles["porfolio-details__pagination__url__content"]}
-            >
-              <span>{pagination.next.projectTitle}</span>
-              <span>Next Project</span>
-            </div>
             <svg
               width="10"
               height="17"
@@ -187,6 +182,12 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
                 stroke="#33323D"
               />
             </svg>
+            <div
+              className={styles["porfolio-details__pagination__url__content"]}
+            >
+              <span>{pagination.next.projectTitle}</span>
+              <span>Next Project</span>
+            </div>
           </Link>
         </section>
       )}
