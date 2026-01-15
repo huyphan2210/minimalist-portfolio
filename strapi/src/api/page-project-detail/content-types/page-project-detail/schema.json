@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_project_details",
+  "info": {
+    "singularName": "page-project-detail",
+    "pluralName": "page-project-details",
+    "displayName": "Page - Project Details"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projectHeroImgURL": {
+      "type": "string"
+    },
+    "projectTitle": {
+      "type": "string"
+    },
+    "projectDescription": {
+      "type": "text"
+    },
+    "projectCategories": {
+      "type": "component",
+      "component": "utilities.string",
+      "repeatable": true
+    },
+    "projectTechnologies": {
+      "type": "component",
+      "component": "utilities.string",
+      "repeatable": true
+    },
+    "projectLiveURL": {
+      "type": "string"
+    },
+    "projectCtaContent": {
+      "type": "string"
+    },
+    "projectBackgroundTitle": {
+      "type": "string"
+    },
+    "projectBackgroundDescription": {
+      "type": "text"
+    },
+    "projectStaticPreviewsTitle": {
+      "type": "string"
+    },
+    "projectPreviewImgURLs": {
+      "type": "component",
+      "component": "utilities.string",
+      "repeatable": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "projectTitle"
+    }
+  }
+}

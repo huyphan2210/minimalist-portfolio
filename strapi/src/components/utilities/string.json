@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_utilities_strings",
+  "info": {
+    "displayName": "String"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

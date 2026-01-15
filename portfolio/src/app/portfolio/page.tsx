@@ -27,7 +27,6 @@ const Portfolio: FC = async () => {
               projectThumbnailURL,
               projectDescription,
               projectRelativeCtaContent,
-              projectRelativeURL,
             },
             index
           ) => (
@@ -50,7 +49,7 @@ const Portfolio: FC = async () => {
                 </p>
                 <Link
                   className={portfolio__projects__item__content__cta}
-                  href={projectRelativeURL}
+                  href={`/portfolio/details?projectName=${projectName}`}
                 >
                   {projectRelativeCtaContent}
                 </Link>

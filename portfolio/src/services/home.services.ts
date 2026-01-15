@@ -9,30 +9,7 @@ class HomeServices extends BaseServices {
     const { data } = await this.handleGetRequest<IHomePageApi>(
       this.homePageUrl
     );
-    return {
-      id: data.id || this.DEFAULT_HOME_PAGE_DATA.id,
-      createdAt: data.createdAt || this.DEFAULT_HOME_PAGE_DATA.createdAt,
-      updatedAt: data.updatedAt || this.DEFAULT_HOME_PAGE_DATA.updatedAt,
-      publishedAt: data.publishedAt || this.DEFAULT_HOME_PAGE_DATA.publishedAt,
-      introHeading:
-        data.introHeading || this.DEFAULT_HOME_PAGE_DATA.introHeading,
-      introImageURL:
-        data.introImageURL || this.DEFAULT_HOME_PAGE_DATA.introImageURL,
-      introCtaUrl: data.introCtaUrl || this.DEFAULT_HOME_PAGE_DATA.introCtaUrl,
-      introCtaContent:
-        data.introCtaContent || this.DEFAULT_HOME_PAGE_DATA.introCtaContent,
-      aboutMeTitle:
-        data.aboutMeTitle || this.DEFAULT_HOME_PAGE_DATA.aboutMeTitle,
-      aboutMeDescription:
-        data.aboutMeDescription ||
-        this.DEFAULT_HOME_PAGE_DATA.aboutMeDescription,
-      aboutMeImageURL:
-        data.aboutMeImageURL || this.DEFAULT_HOME_PAGE_DATA.aboutMeImageURL,
-      aboutMeCtaUrl:
-        data.aboutMeCtaUrl || this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaUrl,
-      aboutMeCtaContent:
-        data.aboutMeCtaContent || this.DEFAULT_HOME_PAGE_DATA.aboutMeCtaContent,
-    };
+    return this.enrich<PageHome_Plain>(data, this.DEFAULT_HOME_PAGE_DATA);
   }
 
   private static DEFAULT_HOME_PAGE_DATA: Required<PageHome_Plain> = {

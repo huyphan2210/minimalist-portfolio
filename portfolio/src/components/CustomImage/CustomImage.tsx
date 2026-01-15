@@ -26,14 +26,19 @@ const CustomImage: FC<ICustomImage> = ({
   useEffect(() => {
     if (!isLoadingClassName) return;
 
-    const img = document.querySelector(`.${className}`) as HTMLImageElement;
-    if (img?.complete) {
-      img.classList.remove(isLoadingClassName);
-      return;
-    }
+    const images = document.querySelectorAll(
+      `.${className}`
+    ) as NodeListOf<HTMLImageElement>;
 
-    img.addEventListener("load", () => {
-      img.classList.remove(isLoadingClassName);
+    images.forEach((img) => {
+      if (img?.complete) {
+        img.classList.remove(isLoadingClassName);
+        return;
+      }
+
+      img.addEventListener("load", () => {
+        img.classList.remove(isLoadingClassName);
+      });
     });
   }, []);
 
