@@ -1,4 +1,4 @@
-export interface PageContact_Plain {
+export interface IPageContact {
   id: number;
   createdAt: Date;
   updatedAt: Date;

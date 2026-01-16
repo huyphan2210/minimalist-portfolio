@@ -4,11 +4,11 @@ import { FC } from "react";
 import Link from "next/link";
 
 import styles from "./main.module.scss";
-import { Layout_Plain } from "@/interfaces/api/layout";
+import { ILayout } from "@/interfaces/api/layout";
 import { usePathname } from "next/navigation";
 
 interface IContactSection {
-  layoutData: Required<Layout_Plain>;
+  layoutData: Required<ILayout>;
 }
 
 const ContactSection: FC<IContactSection> = ({ layoutData }) => {

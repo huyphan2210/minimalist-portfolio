@@ -1,14 +1,14 @@
-export interface Navigation_Plain {
+export interface INavigation {
   displayName?: string;
   url?: string;
 }
 
-export interface Layout_Plain {
+export interface ILayout {
   id: number;
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
-  navigations: Navigation_Plain[];
+  navigations: INavigation[];
   contactMeHeading?: string;
   contactMeURL?: string;
   contactMeButtonContent?: string;

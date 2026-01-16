@@ -1,12 +1,12 @@
-export interface PagePortfolio_Plain {
+export interface IPagePortfolio {
   id: number;
   createdAt: Date;
   updatedAt: Date;
   publishedAt?: Date;
-  projects: Required<ProjectBriefInfo_Plain>[];
+  projects: Required<IProjectBriefInfo>[];
 }
 
-export interface ProjectBriefInfo_Plain {
+export interface IProjectBriefInfo {
   projectName?: string;
   projectDescription?: string;
   projectRelativeCtaContent?: string;

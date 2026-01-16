@@ -1,18 +1,18 @@
-import { PageHome_Plain } from "@/interfaces/api/page-home";
+import { IPageHome } from "@/interfaces/api/page-home";
 import BaseServices from "./base.services";
 import { IHomePageApi } from "@/interfaces/page";
 
 class HomeServices extends BaseServices {
   private static homePageUrl = this.apiBaseUrl + "/home-page?populate=*";
 
-  static async getHomePageData(): Promise<Required<PageHome_Plain>> {
+  static async getHomePageData(): Promise<Required<IPageHome>> {
     const { data } = await this.handleGetRequest<IHomePageApi>(
       this.homePageUrl
     );
-    return this.enrich<PageHome_Plain>(data, this.DEFAULT_HOME_PAGE_DATA);
+    return this.enrich<IPageHome>(data, this.DEFAULT_HOME_PAGE_DATA);
   }
 
-  private static DEFAULT_HOME_PAGE_DATA: Required<PageHome_Plain> = {
+  private static DEFAULT_HOME_PAGE_DATA: Required<IPageHome> = {
     id: 5,
     introHeading: "Hey, I'm Huy Phan, and I love building beautiful websites.",
     introCtaUrl: "#about-me",
