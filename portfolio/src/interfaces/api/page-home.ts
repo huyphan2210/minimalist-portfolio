@@ -1,4 +1,4 @@
-export interface PageHome_Plain {
+export interface IPageHome {
   id: number;
   createdAt: Date;
   updatedAt: Date;

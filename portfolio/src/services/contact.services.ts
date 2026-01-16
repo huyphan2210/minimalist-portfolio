@@ -1,6 +1,6 @@
 import { Resend } from "resend";
 
-import { PageContact_Plain } from "@/interfaces/api/page-contact";
+import { IPageContact } from "@/interfaces/api/page-contact";
 import { IContactPageApi } from "@/interfaces/page";
 
 import BaseServices from "./base.services";
@@ -9,12 +9,12 @@ class ContactServices extends BaseServices {
   private static contactApiUrl = this.apiBaseUrl + "/page-contact";
   private static resend = new Resend(process.env.RESEND_API_KEY);
 
-  static async getContactPageData(): Promise<Required<PageContact_Plain>> {
+  static async getContactPageData(): Promise<Required<IPageContact>> {
     const { data } = await this.handleGetRequest<IContactPageApi>(
       this.contactApiUrl
     );
 
-    return this.enrich<PageContact_Plain>(data, this.DEFAULT_CONTACT_PAGE_DATA);
+    return this.enrich<IPageContact>(data, this.DEFAULT_CONTACT_PAGE_DATA);
   }
 
   static async sendContactInformation(
@@ -37,7 +37,7 @@ class ContactServices extends BaseServices {
     }
   }
 
-  private static DEFAULT_CONTACT_PAGE_DATA: Required<PageContact_Plain> = {
+  private static DEFAULT_CONTACT_PAGE_DATA: Required<IPageContact> = {
     id: 5,
     firstSectionTitle: "First Section",
     firstSectionParagraph:

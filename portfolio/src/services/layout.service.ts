@@ -1,16 +1,16 @@
-import { Layout_Plain } from "@/interfaces/api/layout";
+import { ILayout } from "@/interfaces/api/layout";
 import BaseServices from "./base.services";
 import { ILayoutApi } from "@/interfaces/layout";
 
 class LayoutService extends BaseServices {
   private static layoutApiURL = this.apiBaseUrl + "/layout";
 
-  static async getLayoutData(): Promise<Required<Layout_Plain>> {
+  static async getLayoutData(): Promise<Required<ILayout>> {
     const { data } = await this.handleGetRequest<ILayoutApi>(this.layoutApiURL);
-    return this.enrich<Layout_Plain>(data, this.DEFAULT_LAYOUT_DATA);
+    return this.enrich<ILayout>(data, this.DEFAULT_LAYOUT_DATA);
   }
 
-  private static DEFAULT_LAYOUT_DATA: Required<Layout_Plain> = {
+  private static DEFAULT_LAYOUT_DATA: Required<ILayout> = {
     id: 2,
     contactMeHeading: "Interested in doing a project together?",
     contactMeURL: "/contact",

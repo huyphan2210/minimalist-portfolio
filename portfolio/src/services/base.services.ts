@@ -44,6 +44,14 @@ class BaseServices {
 
     return result as Required<T>;
   }
+
+  static slugify(str: string): string {
+    return str
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(/[^\w-]+/g, "");
+  }
 }
 
 export default BaseServices;

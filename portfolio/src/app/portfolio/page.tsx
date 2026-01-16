@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import PortfolioServices from "@/services/portfolio.service";
 import CustomImage from "@/components/CustomImage/CustomImage";
 import Link from "next/link";
+import BaseServices from "@/services/base.services";
 
 const Portfolio: FC = async () => {
   const { projects } = await PortfolioServices.getPortfolioPageData();
@@ -49,7 +50,9 @@ const Portfolio: FC = async () => {
                 </p>
                 <Link
                   className={portfolio__projects__item__content__cta}
-                  href={`/portfolio/details?projectName=${projectName}`}
+                  href={`/portfolio/details?projectName=${BaseServices.slugify(
+                    projectName
+                  )}`}
                 >
                   {projectRelativeCtaContent}
                 </Link>

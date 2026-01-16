@@ -1,4 +1,4 @@
-export interface PagePortfolioDetail {
+export interface IPagePortfolioDetail {
   id: number;
   createdAt: Date;
   updatedAt: Date;

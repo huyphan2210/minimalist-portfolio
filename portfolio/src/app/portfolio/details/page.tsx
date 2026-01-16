@@ -7,6 +7,7 @@ import styles from "./page.module.scss";
 import CustomImage from "@/components/CustomImage/CustomImage";
 
 import PortfolioDetailsServices from "@/services/portfolio-details.service";
+import BaseServices from "@/services/base.services";
 
 interface IPortfolioDetails {
   searchParams: Promise<{
@@ -142,10 +143,14 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
       </div>
       {pagination && (
         <section className={styles["porfolio-details__pagination"]}>
-          <div className={styles["porfolio-details__pagination__separate-line"]}></div>
+          <div
+            className={styles["porfolio-details__pagination__separate-line"]}
+          ></div>
           <Link
             className={styles["porfolio-details__pagination__url"]}
-            href={`/portfolio/details?projectName=${pagination.previous.projectTitle}`}
+            href={`/portfolio/details?projectName=${BaseServices.slugify(
+              pagination.previous.projectTitle || ""
+            )}`}
           >
             <svg
               width="10"
@@ -168,7 +173,10 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
           </Link>
           <Link
             className={styles["porfolio-details__pagination__url"]}
-            href={`/portfolio/details?projectName=${pagination.next.projectTitle}`}
+            href={`/portfolio/details?projectName=${BaseServices.slugify(
+              pagination.next.projectTitle || ""
+            )}
+              `}
           >
             <svg
               width="10"

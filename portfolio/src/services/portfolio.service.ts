@@ -1,6 +1,6 @@
 import {
-  PagePortfolio_Plain,
-  ProjectBriefInfo_Plain,
+  IPagePortfolio,
+  IProjectBriefInfo,
 } from "@/interfaces/api/page-portfolio";
 import BaseServices from "./base.services";
 import { IPortfolioPageApi } from "@/interfaces/page";
@@ -9,7 +9,7 @@ class PortfolioServices extends BaseServices {
   private static portfolioApiUrl =
     this.apiBaseUrl + "/page-portfolio?populate=*";
 
-  static async getPortfolioPageData(): Promise<Required<PagePortfolio_Plain>> {
+  static async getPortfolioPageData(): Promise<Required<IPagePortfolio>> {
     const { data } = await this.handleGetRequest<IPortfolioPageApi>(
       this.portfolioApiUrl
     );
@@ -28,17 +28,13 @@ class PortfolioServices extends BaseServices {
         this.DEFAULT_PORTFOLIO_PROJECT_DATA.projectThumbnailURL;
     }
 
-    return {
-      id: data.id || this.DEFAULT_PORTFOLIO_PAGE_DATA.id,
-      createdAt: data.createdAt || this.DEFAULT_PORTFOLIO_PAGE_DATA.createdAt,
-      updatedAt: data.updatedAt || this.DEFAULT_PORTFOLIO_PAGE_DATA.updatedAt,
-      publishedAt:
-        data.publishedAt || this.DEFAULT_PORTFOLIO_PAGE_DATA.publishedAt,
-      projects: data.projects || this.DEFAULT_PORTFOLIO_PAGE_DATA.projects,
-    };
+    return this.enrich<IPagePortfolio>(
+      data,
+      this.DEFAULT_PORTFOLIO_PAGE_DATA
+    );
   }
 
-  private static DEFAULT_PORTFOLIO_PAGE_DATA: Required<PagePortfolio_Plain> = {
+  private static DEFAULT_PORTFOLIO_PAGE_DATA: Required<IPagePortfolio> = {
     id: 1,
     createdAt: new Date(),
     updatedAt: new Date(),
@@ -46,7 +42,7 @@ class PortfolioServices extends BaseServices {
     projects: [],
   };
 
-  private static DEFAULT_PORTFOLIO_PROJECT_DATA: Required<ProjectBriefInfo_Plain> =
+  private static DEFAULT_PORTFOLIO_PROJECT_DATA: Required<IProjectBriefInfo> =
     {
       projectName: "This is a mystery",
       projectDescription: "This is also another mystery",

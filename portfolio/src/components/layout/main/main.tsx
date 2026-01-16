@@ -1,12 +1,12 @@
 import { FC, ReactNode } from "react";
 import styles from "./main.module.scss";
-import { Layout_Plain } from "@/interfaces/api/layout";
+import { ILayout } from "@/interfaces/api/layout";
 
 import ContactSection from "./ContactSection.client";
 
 interface ILayoutMain {
   children: ReactNode;
-  layoutData: Required<Layout_Plain>;
+  layoutData: Required<ILayout>;
 }
 
 const LayoutMain: FC<ILayoutMain> = async ({ children, layoutData }) => {

@@ -1,9 +1,9 @@
 import BaseServices from "./base.services";
 import { IPortfolioDetailsPageApi } from "@/interfaces/page";
-import { PagePortfolioDetail } from "@/interfaces/api/page-portfolio-details";
+import { IPagePortfolioDetail } from "@/interfaces/api/page-portfolio-details";
 
 class PortfolioDetailsServices extends BaseServices {
-  private static allProjects: PagePortfolioDetail[] = [];
+  private static allProjects: IPagePortfolioDetail[] = [];
 
   private static getPortfolioDetailsApiUrl(projectSlug: string) {
     return `${this.apiBaseUrl}/page-project-details?filters[slug][$eq]=${projectSlug}&populate=*`;
@@ -15,12 +15,12 @@ class PortfolioDetailsServices extends BaseServices {
 
   static async getPortfolioDetailPageData(
     projectSlug: string
-  ): Promise<Required<PagePortfolioDetail>> {
+  ): Promise<Required<IPagePortfolioDetail>> {
     const { data } = await this.handleGetRequest<IPortfolioDetailsPageApi>(
       this.getPortfolioDetailsApiUrl(projectSlug)
     );
 
-    return this.enrich<PagePortfolioDetail>(
+    return this.enrich<IPagePortfolioDetail>(
       data[0],
       this.DEFAULT_PORTFOLIO_DETAILS_PAGE_DATA[0]
     );
@@ -28,8 +28,8 @@ class PortfolioDetailsServices extends BaseServices {
 
   static async getPaginationForPortfolioDetails(projectSlug: string): Promise<
     | {
-        previous: PagePortfolioDetail;
-        next: PagePortfolioDetail;
+        previous: IPagePortfolioDetail;
+        next: IPagePortfolioDetail;
       }
     | undefined
   > {
@@ -66,7 +66,7 @@ class PortfolioDetailsServices extends BaseServices {
   }
 
   private static DEFAULT_PORTFOLIO_DETAILS_PAGE_DATA: Required<
-    PagePortfolioDetail[]
+    IPagePortfolioDetail[]
   > = [
     {
       id: 0,

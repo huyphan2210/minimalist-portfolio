@@ -1,22 +1,22 @@
-import { PageContact_Plain } from "./api/page-contact";
-import { PageHome_Plain } from "./api/page-home";
+import { IPageContact } from "./api/page-contact";
+import { IPageHome } from "./api/page-home";
 import {
-  PagePortfolio_Plain,
+  IPagePortfolio,
 } from "./api/page-portfolio";
-import { PagePortfolioDetail } from "./api/page-portfolio-details";
+import { IPagePortfolioDetail } from "./api/page-portfolio-details";
 
 export interface IHomePageApi {
-  data: PageHome_Plain;
+  data: IPageHome;
 }
 
 export interface IContactPageApi {
-  data: PageContact_Plain;
+  data: IPageContact;
 }
 
 export interface IPortfolioPageApi {
-  data: PagePortfolio_Plain;
+  data: IPagePortfolio;
 }
 
 export interface IPortfolioDetailsPageApi {
-  data: PagePortfolioDetail[];
+  data: IPagePortfolioDetail[];
 }
