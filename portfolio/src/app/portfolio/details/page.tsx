@@ -33,13 +33,15 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
     projectBackgroundDescription,
     projectStaticPreviewsTitle,
     projectPreviewImgURLs,
+    projectDesignCtaContent,
+    projectDesignUrl,
   } = await PortfolioDetailsServices.getPortfolioDetailPageData(
-    params.projectName.toLocaleLowerCase()
+    params.projectName.toLocaleLowerCase(),
   );
 
   const pagination =
     await PortfolioDetailsServices.getPaginationForPortfolioDetails(
-      params.projectName.toLocaleLowerCase()
+      params.projectName.toLocaleLowerCase(),
     );
 
   return (
@@ -81,7 +83,7 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
                 }
               >
                 {projectCategories.map((category, index) =>
-                  index > 0 ? ` / ${category.content}` : category.content
+                  index > 0 ? ` / ${category.content}` : category.content,
                 )}
               </span>
             )}
@@ -94,19 +96,35 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
                 }
               >
                 {projectTechnologies.map((tech, index) =>
-                  index > 0 ? ` / ${tech.content}` : tech.content
+                  index > 0 ? ` / ${tech.content}` : tech.content,
                 )}
               </span>
             )}
           </div>
-
-          <Link
+          <div
             className={styles["porfolio-details__content__intro-section__cta"]}
-            href={projectLiveURL}
-            target="_blank"
           >
-            {projectCtaContent}
-          </Link>
+            <Link
+              className={
+                styles["porfolio-details__content__intro-section__cta__link"]
+              }
+              href={projectLiveURL}
+              target="_blank"
+            >
+              {projectCtaContent}
+            </Link>
+            {projectDesignUrl && (
+              <Link
+                className={
+                  styles["porfolio-details__content__intro-section__cta__link"]
+                }
+                href={projectDesignUrl}
+                target="_blank"
+              >
+                {projectDesignCtaContent}
+              </Link>
+            )}
+          </div>
         </section>
         <section className={styles["porfolio-details__content__section"]}>
           <h2 className={styles["porfolio-details__content__section__heading"]}>
@@ -149,7 +167,7 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
           <Link
             className={styles["porfolio-details__pagination__url"]}
             href={`/portfolio/details?projectName=${BaseServices.slugify(
-              pagination.previous.projectTitle || ""
+              pagination.previous.projectTitle || "",
             )}`}
           >
             <svg
@@ -174,7 +192,7 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
           <Link
             className={styles["porfolio-details__pagination__url"]}
             href={`/portfolio/details?projectName=${BaseServices.slugify(
-              pagination.next.projectTitle || ""
+              pagination.next.projectTitle || "",
             )}
               `}
           >

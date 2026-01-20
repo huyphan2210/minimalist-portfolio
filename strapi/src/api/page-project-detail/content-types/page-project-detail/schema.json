@@ -53,6 +53,12 @@
     "slug": {
       "type": "uid",
       "targetField": "projectTitle"
+    },
+    "projectDesignUrl": {
+      "type": "string"
+    },
+    "projectDesignCtaContent": {
+      "type": "string"
     }
   }
 }

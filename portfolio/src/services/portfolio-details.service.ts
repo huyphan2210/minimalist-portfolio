@@ -78,6 +78,7 @@ class PortfolioDetailsServices extends BaseServices {
       projectCategories: [{ content: "Placeholder" }],
       projectTechnologies: [{ content: "TBD" }],
       projectCtaContent: "Stay Tuned",
+      projectDesignCtaContent: "Stay Tuned",
       projectBackgroundTitle: "Work in Progress",
       projectBackgroundDescription:
         "This portfolio item is intentionally left incomplete as a placeholder.",
@@ -87,6 +88,7 @@ class PortfolioDetailsServices extends BaseServices {
       publishedAt: new Date(),
       projectHeroImgURL: "",
       projectLiveURL: "",
+      projectDesignUrl: "",
     },
   ];
 }

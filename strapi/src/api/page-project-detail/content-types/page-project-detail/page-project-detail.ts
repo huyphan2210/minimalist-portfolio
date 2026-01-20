@@ -19,6 +19,8 @@ export interface PageProjectDetail {
     projectStaticPreviewsTitle?: string;
     projectPreviewImgURLs: String[];
     slug?: string;
+    projectDesignUrl?: string;
+    projectDesignCtaContent?: string;
   };
 }
 export interface PageProjectDetail_Plain {
@@ -35,6 +37,8 @@ export interface PageProjectDetail_Plain {
   projectStaticPreviewsTitle?: string;
   projectPreviewImgURLs: String_Plain[];
   slug?: string;
+  projectDesignUrl?: string;
+  projectDesignCtaContent?: string;
 }
 
 export interface PageProjectDetail_NoRelations {
@@ -51,6 +55,8 @@ export interface PageProjectDetail_NoRelations {
   projectStaticPreviewsTitle?: string;
   projectPreviewImgURLs: String_NoRelations[];
   slug?: string;
+  projectDesignUrl?: string;
+  projectDesignCtaContent?: string;
 }
 
 export interface PageProjectDetail_AdminPanelLifeCycle {
@@ -67,4 +73,6 @@ export interface PageProjectDetail_AdminPanelLifeCycle {
   projectStaticPreviewsTitle?: string;
   projectPreviewImgURLs: String_Plain[];
   slug?: string;
+  projectDesignUrl?: string;
+  projectDesignCtaContent?: string;
 }

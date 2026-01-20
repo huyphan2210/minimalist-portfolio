@@ -10,6 +10,8 @@ export interface IPagePortfolioDetail {
   projectTechnologies: IString[];
   projectLiveURL?: string;
   projectCtaContent?: string;
+  projectDesignUrl?: string;
+  projectDesignCtaContent?: string;
   projectBackgroundTitle?: string;
   projectBackgroundDescription?: string;
   projectStaticPreviewsTitle?: string;

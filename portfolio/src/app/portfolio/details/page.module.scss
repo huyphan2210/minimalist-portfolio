@@ -6,6 +6,10 @@
     width: 100%;
     min-height: 8.75rem;
     margin-bottom: 2.5rem;
+    max-height: 31.25rem;
+    object-fit: cover;
+    object-position: top;
+
     &--loading {
       @include layout-mixins.is-loading-animation;
     }
@@ -45,9 +49,13 @@
       }
 
       &__cta {
-        @include font-mixins.set-button-content;
-        @include layout-mixins.call-to-action-style;
-        align-self: self-start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        &__link {
+          @include font-mixins.set-button-content;
+          @include layout-mixins.call-to-action-style;
+        }
       }
     }
 
