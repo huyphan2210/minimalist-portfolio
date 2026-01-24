@@ -21,6 +21,11 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
     redirect("/portfolio");
   }
 
+  const pagination =
+    await PortfolioDetailsServices.getPaginationForPortfolioDetails(
+      params.projectName.toLocaleLowerCase(),
+    );
+
   const {
     projectHeroImgURL,
     projectTitle,
@@ -38,11 +43,6 @@ const PorfolioDetails: FC<IPortfolioDetails> = async ({ searchParams }) => {
   } = await PortfolioDetailsServices.getPortfolioDetailPageData(
     params.projectName.toLocaleLowerCase(),
   );
-
-  const pagination =
-    await PortfolioDetailsServices.getPaginationForPortfolioDetails(
-      params.projectName.toLocaleLowerCase(),
-    );
 
   return (
     <>

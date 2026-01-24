@@ -5,24 +5,22 @@ import { IPagePortfolioDetail } from "@/interfaces/api/page-portfolio-details";
 class PortfolioDetailsServices extends BaseServices {
   private static allProjects: IPagePortfolioDetail[] = [];
 
-  private static getPortfolioDetailsApiUrl(projectSlug: string) {
-    return `${this.apiBaseUrl}/page-project-details?filters[slug][$eq]=${projectSlug}&populate=*`;
-  }
-
   private static getPortfolioAllProjects() {
-    return `${this.apiBaseUrl}/page-project-details`;
+    return `${this.apiBaseUrl}/page-project-details?populate=*`;
   }
 
   static async getPortfolioDetailPageData(
-    projectSlug: string
+    projectSlug: string,
   ): Promise<Required<IPagePortfolioDetail>> {
-    const { data } = await this.handleGetRequest<IPortfolioDetailsPageApi>(
-      this.getPortfolioDetailsApiUrl(projectSlug)
-    );
+    await this.getAllProjects();
+
+    const projectDetail = this.allProjects.find(
+      (project) => project.slug === projectSlug,
+    ) || this.DEFAULT_PORTFOLIO_DETAILS_PAGE_DATA[0];
 
     return this.enrich<IPagePortfolioDetail>(
-      data[0],
-      this.DEFAULT_PORTFOLIO_DETAILS_PAGE_DATA[0]
+      projectDetail,
+      this.DEFAULT_PORTFOLIO_DETAILS_PAGE_DATA[0],
     );
   }
 
@@ -36,7 +34,7 @@ class PortfolioDetailsServices extends BaseServices {
     await this.getAllProjects();
 
     const targetProjectIndex = this.allProjects.findIndex(
-      (p) => p.slug === projectSlug
+      (p) => p.slug === projectSlug,
     );
     if (targetProjectIndex === -1) {
       return;
@@ -59,7 +57,7 @@ class PortfolioDetailsServices extends BaseServices {
     }
 
     const { data } = await this.handleGetRequest<IPortfolioDetailsPageApi>(
-      this.getPortfolioAllProjects()
+      this.getPortfolioAllProjects(),
     );
 
     this.allProjects = data;
