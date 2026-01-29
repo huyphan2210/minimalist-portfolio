@@ -588,6 +588,8 @@ export interface ApiPageProjectDetailPageProjectDetail
     projectCategories: Schema.Attribute.Component<'utilities.string', true>;
     projectCtaContent: Schema.Attribute.String;
     projectDescription: Schema.Attribute.Text;
+    projectDesignCtaContent: Schema.Attribute.String;
+    projectDesignUrl: Schema.Attribute.String;
     projectHeroImgURL: Schema.Attribute.String;
     projectLiveURL: Schema.Attribute.String;
     projectPreviewImgURLs: Schema.Attribute.Component<'utilities.string', true>;
