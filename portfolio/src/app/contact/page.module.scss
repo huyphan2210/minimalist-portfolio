@@ -45,11 +45,19 @@
     &__profiles {
       display: flex;
       justify-content: center;
+      align-items: center;
       align-self: start;
       gap: 1rem;
       list-style-type: none;
       &__item {
         color: var(--white);
+        &--mail {
+          a {
+            @include layout-mixins.call-to-action-style;
+            @include font-mixins.set-button-content;
+          }
+        }
+
         a {
           @include components-layout-mixins.internal-link-style();
         }
