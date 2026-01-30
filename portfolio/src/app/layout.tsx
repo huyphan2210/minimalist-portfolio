@@ -9,7 +9,6 @@ import {
 import LayoutFooter from "@/components/layout/footer/footer";
 import LayoutMain from "@/components/layout/main/main";
 import LayoutService from "@/services/layout.service";
-import LoadingOverlay from "@/components/LoadingOverlay/LoadingOverlay";
 
 const ibarraRealNova = Ibarra_Real_Nova({
   variable: "--font-ibarra-real-nova",
@@ -42,7 +41,6 @@ export default async function RootLayout({
           internalNavigationList={internalNavigationList}
           profileNavigationList={profileNavigationList}
         ></LayoutFooter>
-        <LoadingOverlay isLoading={true} />
       </body>
     </html>
   );

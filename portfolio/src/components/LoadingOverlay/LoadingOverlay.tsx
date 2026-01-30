@@ -7,7 +7,7 @@ interface ILoadingOverlay {
   isLoading: boolean;
 }
 
-const LoadingOverlay: FC<ILoadingOverlay> = ({ isLoading = false }) => {
+const LoadingOverlay: FC<ILoadingOverlay> = ({ isLoading = true }) => {
   const SECONDS_LIMIT = 30;
   const [secondsPassed, setSecondPassed] = useState(0);
   const modal = useRef<HTMLDialogElement>(null);
