@@ -37,6 +37,16 @@ const Contact: FC = async () => {
         <h2 className={contact__section__title}>{firstSectionTitle}</h2>
         <p className={contact__section__paragraph}>{firstSectionParagraph}</p>
         <ul className={contact__section__profiles}>
+          {process.env.NODE_ENV !== "development" && (
+            <li className={styles["contact__section__profiles__item--mail"]}>
+              <Link
+                target="_blank"
+                href={`mailto:${process.env.CONTACT_RECEIVER_EMAIL}`}
+              >
+                SEND AN EMAIL
+              </Link>
+            </li>
+          )}
           {profileNavigationList.map((navigation, index) => (
             <li className={contact__section__profiles__item} key={index}>
               <Link target="_blank" href={navigation.url}>
@@ -46,16 +56,18 @@ const Contact: FC = async () => {
           ))}
         </ul>
       </section>
-      <ContactForm
-        secondSectionTitle={secondSectionTitle}
-        firstFormFieldLabel={firstFormFieldLabel}
-        firstFormFieldPlaceholder={firstFormFieldPlaceholder}
-        secondFormFieldLabel={secondFormFieldLabel}
-        secondFormFieldPlaceholder={secondFormFieldPlaceholder}
-        thirdFormFieldLabel={thirdFormFieldLabel}
-        thirdFormFieldPlaceholder={thirdFormFieldPlaceholder}
-        formSubmitButtonContent={formSubmitButtonContent}
-      />
+      {process.env.NODE_ENV === "development" && (
+        <ContactForm
+          secondSectionTitle={secondSectionTitle}
+          firstFormFieldLabel={firstFormFieldLabel}
+          firstFormFieldPlaceholder={firstFormFieldPlaceholder}
+          secondFormFieldLabel={secondFormFieldLabel}
+          secondFormFieldPlaceholder={secondFormFieldPlaceholder}
+          thirdFormFieldLabel={thirdFormFieldLabel}
+          thirdFormFieldPlaceholder={thirdFormFieldPlaceholder}
+          formSubmitButtonContent={formSubmitButtonContent}
+        />
+      )}
     </>
   );
 };
