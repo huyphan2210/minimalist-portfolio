@@ -50,7 +50,7 @@ const Home: FC = async () => {
           </Link>
         </div>
       </section>
-      <section id={introCtaUrl} className={styles["home__about-me"]}>
+      <section id={introCtaUrl.substring(1)} className={styles["home__about-me"]}>
         <CustomImage
           className={styles["home__about-me__img"]}
           isLoadingClassName={styles["home__about-me__img--loading"]}
